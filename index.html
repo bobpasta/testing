@@ -21,18 +21,19 @@
 			margin: auto;
 			float: right;
 			width: 50%;
-			background-color: black;
+			background-color: white;
 		}
 		#div_price{
 			margin: auto;
 			float: top;
-			background-color: green;
+			background-color: white;
 			text-align: right;
 		}
 		#div_quantity{
 			margin: auto;
 			float: bottom;
-			background-color: yellow;
+			float: right;
+			background-color: white;
 		}
 	</style>
 
@@ -42,10 +43,14 @@
 
 <body>
 	<div id="div_root">
-		<div id="div_menu"> 메뉴 </div>
+		<div id="div_menu"> 알리오올리오 </div>
 		<div id="div_price_quantity">
-			<div id="div_price"> 가격 </div>
-			<div id="div_quantity"> 수량 </div>
+			<div id="div_price"> 16000원 </div>
+			<div id="div_quantity"> 
+				<button type="button"> - </button>
+				<span> 1개 </span>
+				<button type="button"> + </button>
+			</div>
 		</div>
 	</div>
 
