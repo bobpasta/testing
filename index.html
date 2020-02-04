@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
 <html>
 
 <head>
@@ -6,6 +8,8 @@
 	<title> CSS 나누기 </title>
 	
 	<style>
+		#div_container{
+		}
 		#div_root{
 			border-bottom: thin solid black;
 			padding: 5px;
@@ -44,7 +48,8 @@
 
 
 <body>
-	<div id="div_root"> 
+<div id="container">
+	<!--div id="div_root"> 
 		<div id="div_menu"> 알리오올리오 </div>
 		<div id="div_price_quantity">
 			<div id="div_price"> 16000원 </div>
@@ -54,29 +59,166 @@
 				<button type="button"> + </button>
 			</div>
 		</div>
-	</div>
-	<div id="div_root"> 
-		<div id="div_menu"> 까르보나라 </div>
-		<div id="div_price_quantity">
-			<div id="div_price"> 10000원 </div>
-			<div id="div_quantity"> 
-				<button type="button"> - </button>
-				<span> 1개 </span>
-				<button type="button"> + </button>
-			</div>
-		</div>
-	</div>
-	<div id="div_root"> 
-		<div id="div_menu"> 알프레도 소스 버섯 크림 리조또 </div>
-		<div id="div_price_quantity">
-			<div id="div_price"> 25000원 </div>
-			<div id="div_quantity"> 
-				<button type="button"> - </button>
-				<span> 1개 </span>
-				<button type="button"> + </button>
-			</div>
-		</div>
-	</div>
-
+	</div-->
+</div>
 </body>
+
+<script>
+
+	function Goods(){
+		var tableNum = 0;
+		var p = this;
+		this.arrAllGoods = new Array();
+
+		this.drawItem = function(goods, start, end) {
+			var innerHtml = "";
+			for (var i = start; i <= end; i++) {					
+				innerHtml += '<div id="div_root">';
+					innerHtml += '<div id="div_menu">'
+						innerHtml += '<span id="input_name_'+goods[i].goodsId+'">' + goods[i].goodsNm + '</span>';
+					innerHtml += '</div>';
+					innerHtml += '<div id="div_price_quantity">';
+						innerHtml += '<div id="div_price">';
+						innerHtml += '<span id="input_price_'+goods[i].goodsId+'">' + goods[i].goodsUnprc + '원</span>';
+						innerHtml += '</div>';
+						innerHtml += '<div id="div_quantity">';
+						innerHtml += '<button type="button" onclick="goods.minus(\''+goods[i].goodsId+'\');"> - </button>';
+						innerHtml += '<span id="input_cnt_'+goods[i].goodsId+'">' + goods[i].cnt + '개</span>';
+						innerHtml += '<button type="button" onclick="goods.plus(\''+goods[i].goodsId+'\');"> + </button>';
+						innerHtml += '</div>';
+					innerHtml += '</div>';
+				innerHtml += '</div>';
+			}
+			return innerHtml;
+		}
+		
+		this.drawGoods = function(goods) {
+			var innerHtml = "";
+			innerHtml += this.drawItem(goods, 0, 50);
+			$('#container').append(innerHtml);
+		}
+		
+		this.plus = function (trgtGoodsId){
+			for(var i=0;i<p.arrAllGoods.length;i++){
+				if(p.arrAllGoods[i].goodsId==trgtGoodsId){
+					p.arrAllGoods[i].cnt++;
+					break;
+				}
+			}
+			
+			p.afterProc();			
+		}
+		
+		this.minus = function (trgtGoodsId){
+			for(var i=0;i<p.arrAllGoods.length;i++){
+				if(p.arrAllGoods[i].goodsId==trgtGoodsId){
+					if(p.arrAllGoods[i].cnt==0) break;
+					p.arrAllGoods[i].cnt--;
+					break;
+				}
+			}
+			
+			p.afterProc();			
+		}
+		
+		var orderList = [];
+		this.afterProc = function (){
+			// 최종 금액 표시
+			orderList = [];
+			var goodsTotAmt = 0;
+			for(var i=0; i<p.arrAllGoods.length; i++){
+				$('#input_cnt_'+p.arrAllGoods[i].goodsId).html(p.arrAllGoods[i].cnt +'개 ');
+				if (p.arrAllGoods[i].cnt>0) {
+					$('#input_name_'+p.arrAllGoods[i].goodsId).css("font-weight", "Bold");
+					$('#input_cnt_'+p.arrAllGoods[i].goodsId).css("font-weight", "Bold");
+				}
+				else {
+					$('#input_name_'+p.arrAllGoods[i].goodsId).css("font-weight", "Normal");
+					$('#input_cnt_'+p.arrAllGoods[i].goodsId).css("font-weight", "Normal");
+				}
+
+				goodsTotAmt += p.arrAllGoods[i].cnt*p.arrAllGoods[i].goodsUnprc;
+				if (p.arrAllGoods[i].cnt > 0) {
+					orderList.push(p.arrAllGoods[i]);
+				}
+			}
+			console.log(goodsTotAmt);
+		}
+		
+	}
+
+
+
+	var goods = new Goods();
+	
+	//jstl로 전체 상품 목록 미리 세팅
+	goods.arrAllGoods.push({goodsId:"0",goodsUnprc:18000,goodsNm:"부채살스테이크", cnt:0});
+	goods.arrAllGoods.push({goodsId:"1",goodsUnprc:16000,goodsNm:"차돌박이 샐러드피자", cnt:0});
+	goods.arrAllGoods.push({goodsId:"2",goodsUnprc:15000,goodsNm:"고르곤졸라 피자", cnt:0});
+	goods.arrAllGoods.push({goodsId:"3",goodsUnprc:12000,goodsNm:"마르게리따 피자", cnt:0});
+	
+	//토마토 파스타
+	goods.arrAllGoods.push({goodsId:"4",goodsUnprc:12000,goodsNm:"뽀모도로 파스타", cnt:0});
+	goods.arrAllGoods.push({goodsId:"5",goodsUnprc:12500,goodsNm:"아마트리치아나 파스타", cnt:0});
+	goods.arrAllGoods.push({goodsId:"6",goodsUnprc:13000,goodsNm:"만조 토마토 파스타", cnt:0});
+	goods.arrAllGoods.push({goodsId:"7",goodsUnprc:13500,goodsNm:"해산물 토마토 파스타", cnt:0});
+	goods.arrAllGoods.push({goodsId:"8",goodsUnprc:15000,goodsNm:"빼쉐 뚝배기 파스타", cnt:0});
+	goods.arrAllGoods.push({goodsId:"9",goodsUnprc:12500,goodsNm:"볼로네제 파스타", cnt:0});
+
+	//크림 파스타
+	goods.arrAllGoods.push({goodsId:"10",goodsUnprc:12500,goodsNm:"까르보나라 파스타", cnt:0});
+	goods.arrAllGoods.push({goodsId:"11",goodsUnprc:6000,goodsNm:"까르보나라 파스타 10세 이하", cnt:0});
+	goods.arrAllGoods.push({goodsId:"12",goodsUnprc:13000,goodsNm:"새우날치알 파스타", cnt:0});
+	goods.arrAllGoods.push({goodsId:"13",goodsUnprc:12000,goodsNm:"알프레도소스 버섯 파스타", cnt:0});
+	goods.arrAllGoods.push({goodsId:"14",goodsUnprc:14000,goodsNm:"꽃게 로제 파스타 (한정판매)", cnt:0});
+	goods.arrAllGoods.push({goodsId:"15",goodsUnprc:14000,goodsNm:"만조 크림 파스타", cnt:0});
+	goods.arrAllGoods.push({goodsId:"16",goodsUnprc:14500,goodsNm:"해산물 크림 파스타", cnt:0});
+	
+	//오일 파스타
+	goods.arrAllGoods.push({goodsId:"17",goodsUnprc:13500,goodsNm:"해산물 오일 파스타", cnt:0});
+	goods.arrAllGoods.push({goodsId:"18",goodsUnprc:10000,goodsNm:"알리오올리오", cnt:0});
+	goods.arrAllGoods.push({goodsId:"19",goodsUnprc:12000,goodsNm:"명란이봉골레", cnt:0});
+	goods.arrAllGoods.push({goodsId:"20",goodsUnprc:13000,goodsNm:"감베리판체타", cnt:0});
+	
+	//토마토 리조또
+	goods.arrAllGoods.push({goodsId:"21",goodsUnprc:13000,goodsNm:"뽀모도로 리조또", cnt:0});
+	goods.arrAllGoods.push({goodsId:"22",goodsUnprc:13500,goodsNm:"아마트리치아나 리조또", cnt:0});
+	goods.arrAllGoods.push({goodsId:"23",goodsUnprc:14000,goodsNm:"만조 토마토 리조또", cnt:0});
+	goods.arrAllGoods.push({goodsId:"24",goodsUnprc:14500,goodsNm:"해산물 토마토 리조또", cnt:0});
+	goods.arrAllGoods.push({goodsId:"25",goodsUnprc:16000,goodsNm:"빼쉐 뚝배기 리조또", cnt:0});
+	goods.arrAllGoods.push({goodsId:"26",goodsUnprc:13500,goodsNm:"볼로네제 리조또", cnt:0});
+
+	//크림 리조또
+	goods.arrAllGoods.push({goodsId:"27",goodsUnprc:13500,goodsNm:"까르보나라 리조또", cnt:0});
+	goods.arrAllGoods.push({goodsId:"28",goodsUnprc:7000,goodsNm:"까르보나라 리조또 10세 이하", cnt:0});
+	goods.arrAllGoods.push({goodsId:"29",goodsUnprc:14000,goodsNm:"새우날치알 크림 리조또", cnt:0});
+	goods.arrAllGoods.push({goodsId:"30",goodsUnprc:13000,goodsNm:"알프레도소스 버섯크림 리조또", cnt:0});
+	goods.arrAllGoods.push({goodsId:"31",goodsUnprc:15000,goodsNm:"꽃게 로제 리조또 (한정판매)", cnt:0});
+	goods.arrAllGoods.push({goodsId:"32",goodsUnprc:15500,goodsNm:"해산물 크림 리조또", cnt:0});
+	goods.arrAllGoods.push({goodsId:"33",goodsUnprc:15000,goodsNm:"만조 크림 리조또", cnt:0});
+	
+	//음료
+	goods.arrAllGoods.push({goodsId:"34",goodsUnprc:6000,goodsNm:"버니니클래식", cnt:0});
+	goods.arrAllGoods.push({goodsId:"35",goodsUnprc:6000,goodsNm:"버니니블러쉬", cnt:0});
+	goods.arrAllGoods.push({goodsId:"36",goodsUnprc:6000,goodsNm:"레드와인 (150ml)", cnt:0});
+	goods.arrAllGoods.push({goodsId:"37",goodsUnprc:28000,goodsNm:"레드와인 (750ml)", cnt:0});
+	goods.arrAllGoods.push({goodsId:"38",goodsUnprc:6000,goodsNm:"비라모레띠", cnt:0});
+	goods.arrAllGoods.push({goodsId:"39",goodsUnprc:4000,goodsNm:"카스", cnt:0});
+	goods.arrAllGoods.push({goodsId:"40",goodsUnprc:6000,goodsNm:"호가든", cnt:0});
+	goods.arrAllGoods.push({goodsId:"41",goodsUnprc:2500,goodsNm:"콜라", cnt:0});
+	goods.arrAllGoods.push({goodsId:"42",goodsUnprc:2500,goodsNm:"스프라이트", cnt:0});
+	goods.arrAllGoods.push({goodsId:"43",goodsUnprc:2500,goodsNm:"웰치스 포도", cnt:0});
+	goods.arrAllGoods.push({goodsId:"44",goodsUnprc:2500,goodsNm:"오렌지 쥬스", cnt:0});
+	goods.arrAllGoods.push({goodsId:"45",goodsUnprc:2000,goodsNm:"커피", cnt:0});
+	goods.arrAllGoods.push({goodsId:"46",goodsUnprc:2500,goodsNm:"아이스 커피", cnt:0});
+
+	goods.arrAllGoods.push({goodsId:"47",goodsUnprc:5000,goodsNm:"세트 (음료: 콜라)", cnt:0});
+	goods.arrAllGoods.push({goodsId:"48",goodsUnprc:5000,goodsNm:"세트 (음료: 사이다)", cnt:0});
+	goods.arrAllGoods.push({goodsId:"49",goodsUnprc:5000,goodsNm:"세트 (음료: 커피)", cnt:0});
+	goods.arrAllGoods.push({goodsId:"50",goodsUnprc:500,goodsNm:"마늘빵", cnt:0});
+
+	goods.drawGoods(goods.arrAllGoods);
+
+</script>
+
 </html>
