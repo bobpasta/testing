@@ -52,7 +52,7 @@
 			border-right: thin solid black;
 		}
 		#btn_num{
-			width: 30px;
+			width: 50px;
 			height: 30px;
 			background-color: Transparent;
 			border-style: none;
@@ -108,8 +108,11 @@
 						innerHtml += '</div>';
 						innerHtml += '<div id="div_quantity">';
 						innerHtml += '<button id="btn_minus" onclick="goods.minus(\''+goods[i].goodsId+'\');"> - </button>';
-						innerHtml += '<button id="btn_num">' + goods[i].cnt + '</button>';
-						//innerHtml += '<span id="input_cnt_'+goods[i].goodsId+'">   ' + goods[i].cnt + '   </span>';
+						innerHtml += '<button id="btn_num">';
+
+						//innerHtml += '<button id="btn_num">' + '<span id="input_cnt_'+goods[i].goodsId+'">' + goods[i].cnt + '</span> </button>';
+						innerHtml += '<span id="input_cnt_'+goods[i].goodsId+'">' + goods[i].cnt + '</span>';
+						innerHtml += '</button>';
 						innerHtml += '<button  id="btn_plus" onclick=" goods.plus(\''+goods[i].goodsId+'\');"> + </button>';
 						innerHtml += '</div>';
 					innerHtml += '</div>';
@@ -122,6 +125,7 @@
 			var innerHtml = "";
 			innerHtml += this.drawItem(goods, 0, 50);
 			$('#container').append(innerHtml);
+
 		}
 		
 		this.plus = function (trgtGoodsId){
@@ -144,7 +148,7 @@
 				}
 			}
 			
-			p.afterProc();			
+			p.afterProc();
 		}
 		
 		var orderList = [];
@@ -153,7 +157,7 @@
 			orderList = [];
 			var goodsTotAmt = 0;
 			for(var i=0; i<p.arrAllGoods.length; i++){
-				$('#input_cnt_'+p.arrAllGoods[i].goodsId).html('   ' + p.arrAllGoods[i].cnt + '   ');
+				$('#input_cnt_'+p.arrAllGoods[i].goodsId).html(p.arrAllGoods[i].cnt);
 				if (p.arrAllGoods[i].cnt>0) {
 					$('#input_name_'+p.arrAllGoods[i].goodsId).css("font-weight", "Bold");
 					$('#input_cnt_'+p.arrAllGoods[i].goodsId).css("font-weight", "Bold");
@@ -168,7 +172,7 @@
 					orderList.push(p.arrAllGoods[i]);
 				}
 			}
-			console.log(goodsTotAmt);
+			
 		}
 		
 	}
