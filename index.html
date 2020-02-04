@@ -7,11 +7,13 @@
 	
 	<style>
 		#div_root{
+			border-bottom: thin solid black;
+			padding: 5px;
 			margin: auto;
-			background-color: red;
+			background-color: white;
+			overflow: hidden;
 		}
 		#div_menu{
-			margin: auto;
 			width: 50%;
 			float: left;
 			background-color: white;
@@ -42,10 +44,32 @@
 
 
 <body>
-	<div id="div_root">
+	<div id="div_root"> 
 		<div id="div_menu"> 알리오올리오 </div>
 		<div id="div_price_quantity">
 			<div id="div_price"> 16000원 </div>
+			<div id="div_quantity"> 
+				<button type="button"> - </button>
+				<span> 1개 </span>
+				<button type="button"> + </button>
+			</div>
+		</div>
+	</div>
+	<div id="div_root"> 
+		<div id="div_menu"> 까르보나라 </div>
+		<div id="div_price_quantity">
+			<div id="div_price"> 10000원 </div>
+			<div id="div_quantity"> 
+				<button type="button"> - </button>
+				<span> 1개 </span>
+				<button type="button"> + </button>
+			</div>
+		</div>
+	</div>
+	<div id="div_root"> 
+		<div id="div_menu"> 알프레도 소스 버섯 크림 리조또 </div>
+		<div id="div_price_quantity">
+			<div id="div_price"> 25000원 </div>
 			<div id="div_quantity"> 
 				<button type="button"> - </button>
 				<span> 1개 </span>
