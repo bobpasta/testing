@@ -11,7 +11,7 @@
 		#div_container{
 		}
 		#div_root{
-			border-bottom: thin solid grey;
+			border-bottom: thin solid #BEBEBE;
 			padding: 5px;
 			margin: auto;
 			background-color: white;
@@ -44,6 +44,12 @@
 			height: 30px;
 			width: auto;
 		}
+		#div_category_container{
+		}
+		.div_category{
+			background-color: #E8E8E8;
+			border-bottom: thin solid #BEBEBE;
+		}
 		#btn_minus{
 			width: 30px;
 			height: 30px;
@@ -74,6 +80,33 @@
 
 <body>
 <div id="container">
+	<div id="div_category_container">
+		<div id="div_category1" class="div_category" value = 0>
+		스테이크 및 피자 &#x25BC
+		</div>
+		<div id="div_category2" class="div_category" value = 0>
+		토마토 파스타 &#x25BC
+		</div>
+		<div id="div_category3" class="div_category" value = 0>
+		크림 파스타 &#x25BC
+		</div>
+		<div id="div_category4" class="div_category" value = 0>
+		오일 파스타 &#x25BC
+		</div>
+		<div id="div_category5" class="div_category" value = 0>
+		토마토 리조또 &#x25BC
+		</div>
+		<div id="div_category6" class="div_category" value = 0>
+		크림 리조또 &#x25BC
+		</div>
+		<div id="div_category7" class="div_category" value = 0>
+		음료 &#x25BC
+		</div>
+		<div id="div_category8" class="div_category" value = 0>
+		마늘빵 및 세트 변경 &#x25BC
+		</div>
+	</div>
+
 	<!--div id="div_root"> 
 		<div id="div_menu"> 알리오올리오 </div>
 		<div id="div_price_quantity">
@@ -89,6 +122,7 @@
 </body>
 
 <script>
+
 
 	function Goods(){
 		var tableNum = 0;
@@ -121,10 +155,18 @@
 			return innerHtml;
 		}
 		
-		this.drawGoods = function(goods) {
+		this.drawGoods = function(goods, category, start, end) {
 			var innerHtml = "";
-			innerHtml += this.drawItem(goods, 0, 50);
-			$('#container').append(innerHtml);
+			//innerHtml += 
+			innerHtml += this.drawItem(goods, start, end);
+			$(category).append(innerHtml);
+
+		}
+		this.drawGoods2 = function(goods) {
+			var innerHtml = "";
+			//innerHtml += 
+			innerHtml += this.drawItem(goods, 3, 5);
+			$('#div_category2').append(innerHtml);
 
 		}
 		
@@ -247,7 +289,26 @@
 	goods.arrAllGoods.push({goodsId:"49",goodsUnprc:5000,goodsNm:"세트 (음료: 커피)", cnt:0});
 	goods.arrAllGoods.push({goodsId:"50",goodsUnprc:500,goodsNm:"마늘빵", cnt:0});
 
-	goods.drawGoods(goods.arrAllGoods);
+	//goods.drawGoods(goods.arrAllGoods);
+	
+	$('.div_category').click(function(){
+		flag = $('#'+this.id).attr("value");
+		if (flag == 0) {
+			html = $(this).html();
+			if (this.id == 'div_category1')
+				goods.drawGoods(goods.arrAllGoods, this, 0 , 3);
+			else if (this.id == 'div_category2')
+				goods.drawGoods(goods.arrAllGoods, this, 4 , 9);				
+				
+			$('#'+this.id).attr("value", 1);
+		}
+		else {
+			$(this).html(html);
+			$('#'+this.id).attr("value", 0);
+		}
+		
+	});
+
 
 </script>
 
