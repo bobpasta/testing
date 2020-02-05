@@ -313,10 +313,40 @@
 		flag = $('#'+this.id).attr("value");
 		if (flag == 0) {
 			html = $(this).html();
+			/*
 			if (this.id == 'div_category1')
 				goods.drawGoods(goods.arrAllGoods, this, 0 , 3);
 			else if (this.id == 'div_category2')
-				goods.drawGoods(goods.arrAllGoods, this, 4 , 9);				
+				goods.drawGoods(goods.arrAllGoods, this, 4 , 9);
+			*/
+			switch (this.id) {
+				case 'div_category1':
+					goods.drawGoods(goods.arrAllGoods, this, 0, 3);
+					break;
+				case 'div_category2':
+					goods.drawGoods(goods.arrAllGoods, this, 4, 9);
+					break;
+				case 'div_category3':
+					goods.drawGoods(goods.arrAllGoods, this, 10, 16);
+					break;
+				case 'div_category4':
+					goods.drawGoods(goods.arrAllGoods, this, 17, 20);
+					break;
+				case 'div_category5':
+					goods.drawGoods(goods.arrAllGoods, this, 21, 26);
+					break;
+				case 'div_category6':
+					goods.drawGoods(goods.arrAllGoods, this, 27, 33);
+					break;
+				case 'div_category7':
+					goods.drawGoods(goods.arrAllGoods, this, 34, 46);
+					break;
+				case 'div_category8':
+					goods.drawGoods(goods.arrAllGoods, this, 47, 50);
+					break;
+				default:
+					break;
+			}
 				
 			$('#'+this.id).attr("value", 1);
 		}
