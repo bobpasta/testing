@@ -155,6 +155,8 @@
 		</div>
 		<div id="div_non_category8"></div>
 	</div>
+<div id="orders" style="border:1px solid; padding:5px">
+</div>
 
 	<!--div id="div_root"> 
 		<div id="div_menu"> 알리오올리오 </div>
@@ -304,6 +306,21 @@
 					orderList.push(p.arrAllGoods[i]);
 				}
 			}
+			
+			var innerHtml = "";
+			innerHtml = '<span style="font-weight:bold">주문 내역:</span>';
+			innerHtml += '<ul class="columns" data-columns="1" style="padding-left:10; columns:1">';
+			
+			for (var i=0; i<orderList.length; i++){
+				innerHtml += '<li style="margin-left:10px">';
+				innerHtml += orderList[i].goodsNm;
+				innerHtml += ' ' + orderList[i].cnt + '개';
+				innerHtml += '</li>';
+			}
+			innerHtml += '</ul>';
+			//innerHtml += '<span style="background-color: #FFFF00; font-weight:bold">주문 금액:  </span>';
+			//innerHtml += '<span style="background-color: #FFFF00; font-weight:bold">' + goodsTotAmt + '원'+ '</span>';
+			$('#orders').empty().append(innerHtml);
 			
 		}
 		
