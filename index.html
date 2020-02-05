@@ -85,45 +85,60 @@
 <p></p>
 <div id="container">
 	<div id="div_category_container">
-		<div id="div_category1" class="div_category" value = 0 title = "스테이크 및 피자 &#x25BC">
+		<div id="div_category1" class="div_category" num = 1 value = 0 title = "스테이크 및 피자 &#x25BC">
 		스테이크 및 피자 &#x25BC
 		<p>
 		</p>
 		</div>
-		<div id="div_category2" class="div_category" value = 0 title = "토마토 파스타 &#x25BC">
+		<div id="div_non_category1"></div>
+		
+		<div id="div_category2" class="div_category" num = 2 value = 0 title = "토마토 파스타 &#x25BC">
 		토마토 파스타 &#x25BC
 		<p>
 		</p>
+		<div id="div_non_category2"></div>
 		</div>
-		<div id="div_category3" class="div_category" value = 0 title = "크림 파스타 &#x25BC">
+		
+		<div id="div_category3" class="div_category" num = 3 value = 0 title = "토마토 파스타 &#x25BC">
 		크림 파스타 &#x25BC
 		<p>
 		</p>
+		<div id="div_non_category3"></div>
 		</div>
-		<div id="div_category4" class="div_category" value = 0 title = "오일 파스타 &#x25BC">
+		
+		<div id="div_category4" class="div_category" num = 4 value = 0 title = "토마토 파스타 &#x25BC">
 		오일 파스타 &#x25BC
 		<p>
 		</p>
+		<div id="div_non_category4"></div>
 		</div>
-		<div id="div_category5" class="div_category" value = 0 title = "토마토 리조또 &#x25BC">
+		
+		<div id="div_category5" class="div_category" num = 5 value = 0 title = "토마토 파스타 &#x25BC">
 		토마토 리조또 &#x25BC
 		<p>
 		</p>
+		<div id="div_non_category5"></div>
 		</div>
-		<div id="div_category6" class="div_category" value = 0 title = "크림 리조또 &#x25BC">
+		
+		<div id="div_category6" class="div_category" num = 6 value = 0 title = "토마토 파스타 &#x25BC">
 		크림 리조또 &#x25BC
 		<p>
 		</p>
+		<div id="div_non_category6"></div>
 		</div>
-		<div id="div_category7" class="div_category" value = 0 title = "음료 &#x25BC">
+		
+		<div id="div_category7" class="div_category" num = 7 value = 0 title = "토마토 파스타 &#x25BC">
 		음료 &#x25BC
 		<p>
 		</p>
+		<div id="div_non_category7"></div>
 		</div>
-		<div id="div_category8" class="div_category" value = 0 title = "마늘빵 및 세트 변경 &#x25BC">
+		
+		<div id="div_category8" class="div_category" num = 8 value = 0 title = "토마토 파스타 &#x25BC">
 		마늘빵 및 세트 변경 &#x25BC
 		<p>
 		</p>
+		<div id="div_non_category8"></div>
 		</div>
 	</div>
 
@@ -144,41 +159,42 @@
 <script>
 	
 	$('.div_category').click(function(){
-		flag = $('#'+this.id).attr("value");
+		flag = $(this).attr("value");
+		num = $(this).attr("num");
 		if (flag == 0) {
-			switch (this.id) {
-				case 'div_category1':
-					goods.drawGoods(goods.arrAllGoods, this, 0, 3);
+			switch (num) {
+				case '1':
+					goods.drawGoods(goods.arrAllGoods, $('#div_non_category'+num), 0, 3);
 					break;
-				case 'div_category2':
-					goods.drawGoods(goods.arrAllGoods, this, 4, 9);
+				case '2':
+					goods.drawGoods(goods.arrAllGoods, $('#div_non_category'+num), 4, 9);
 					break;
-				case 'div_category3':
-					goods.drawGoods(goods.arrAllGoods, this, 10, 16);
+				case '3':
+					goods.drawGoods(goods.arrAllGoods, $('#div_non_category'+num), 10, 16);
 					break;
-				case 'div_category4':
-					goods.drawGoods(goods.arrAllGoods, this, 17, 20);
+				case '4':
+					goods.drawGoods(goods.arrAllGoods, $('#div_non_category'+num), 17, 20);
 					break;
-				case 'div_category5':
-					goods.drawGoods(goods.arrAllGoods, this, 21, 26);
+				case '5':
+					goods.drawGoods(goods.arrAllGoods, $('#div_non_category'+num), 21, 26);
 					break;
-				case 'div_category6':
-					goods.drawGoods(goods.arrAllGoods, this, 27, 33);
+				case '6':
+					goods.drawGoods(goods.arrAllGoods, $('#div_non_category'+num), 27, 33);
 					break;
-				case 'div_category7':
-					goods.drawGoods(goods.arrAllGoods, this, 34, 46);
+				case '7':
+					goods.drawGoods(goods.arrAllGoods, $('#div_non_category'+num), 34, 46);
 					break;
-				case 'div_category8':
-					goods.drawGoods(goods.arrAllGoods, this, 47, 50);
+				case '8':
+					goods.drawGoods(goods.arrAllGoods, $('#div_non_category'+num), 47, 50);
 					break;
 				default:
 					break;
 			}
 
-			$('#'+this.id).attr("value", 1);
+			$(this).attr("value", 1);
 		}
 		else {
-			$(this).html($('#'+this.id).attr("title") + '<p></p>');
+			$('#div_non_category'+num).html('');
 			$('#'+this.id).attr("value", 0);
 		}
 		
