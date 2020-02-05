@@ -83,42 +83,42 @@
 <body>
 <div id="container">
 	<div id="div_category_container">
-		<div id="div_category1" class="div_category" value = 0>
+		<div id="div_category1" class="div_category" value = 0 title = "스테이크 및 피자 &#x25BC">
 		스테이크 및 피자 &#x25BC
 		<p>
 		</p>
 		</div>
-		<div id="div_category2" class="div_category" value = 0>
+		<div id="div_category2" class="div_category" value = 0 title = "토마토 파스타 &#x25BC">
 		토마토 파스타 &#x25BC
 		<p>
 		</p>
 		</div>
-		<div id="div_category3" class="div_category" value = 0>
+		<div id="div_category3" class="div_category" value = 0 title = "크림 파스타 &#x25BC">
 		크림 파스타 &#x25BC
 		<p>
 		</p>
 		</div>
-		<div id="div_category4" class="div_category" value = 0>
+		<div id="div_category4" class="div_category" value = 0 title = "오일 파스타 &#x25BC">
 		오일 파스타 &#x25BC
 		<p>
 		</p>
 		</div>
-		<div id="div_category5" class="div_category" value = 0>
+		<div id="div_category5" class="div_category" value = 0 title = "토마토 리조또 &#x25BC">
 		토마토 리조또 &#x25BC
 		<p>
 		</p>
 		</div>
-		<div id="div_category6" class="div_category" value = 0>
+		<div id="div_category6" class="div_category" value = 0 title = "크림 리조또 &#x25BC">
 		크림 리조또 &#x25BC
 		<p>
 		</p>
 		</div>
-		<div id="div_category7" class="div_category" value = 0>
+		<div id="div_category7" class="div_category" value = 0 title = "음료 &#x25BC">
 		음료 &#x25BC
 		<p>
 		</p>
 		</div>
-		<div id="div_category8" class="div_category" value = 0>
+		<div id="div_category8" class="div_category" value = 0 title = "마늘빵 및 세트 변경 &#x25BC">
 		마늘빵 및 세트 변경 &#x25BC
 		<p>
 		</p>
@@ -140,7 +140,47 @@
 </body>
 
 <script>
+	
+	$('.div_category').click(function(){
+		flag = $('#'+this.id).attr("value");
+		if (flag == 0) {
+			switch (this.id) {
+				case 'div_category1':
+					goods.drawGoods(goods.arrAllGoods, this, 0, 3);
+					break;
+				case 'div_category2':
+					goods.drawGoods(goods.arrAllGoods, this, 4, 9);
+					break;
+				case 'div_category3':
+					goods.drawGoods(goods.arrAllGoods, this, 10, 16);
+					break;
+				case 'div_category4':
+					goods.drawGoods(goods.arrAllGoods, this, 17, 20);
+					break;
+				case 'div_category5':
+					goods.drawGoods(goods.arrAllGoods, this, 21, 26);
+					break;
+				case 'div_category6':
+					goods.drawGoods(goods.arrAllGoods, this, 27, 33);
+					break;
+				case 'div_category7':
+					goods.drawGoods(goods.arrAllGoods, this, 34, 46);
+					break;
+				case 'div_category8':
+					goods.drawGoods(goods.arrAllGoods, this, 47, 50);
+					break;
+				default:
+					break;
+			}
 
+			$('#'+this.id).attr("value", 1);
+		}
+		else {
+			$(this).html($('#'+this.id).attr("title") + '<p></p>');
+			$('#'+this.id).attr("value", 0);
+		}
+		
+	});
 
 	function Goods(){
 		var tableNum = 0;
@@ -308,55 +348,6 @@
 	goods.arrAllGoods.push({goodsId:"50",goodsUnprc:500,goodsNm:"마늘빵", cnt:0});
 
 	//goods.drawGoods(goods.arrAllGoods);
-	
-	$('.div_category').click(function(){
-		flag = $('#'+this.id).attr("value");
-		if (flag == 0) {
-			html = $(this).html();
-			/*
-			if (this.id == 'div_category1')
-				goods.drawGoods(goods.arrAllGoods, this, 0 , 3);
-			else if (this.id == 'div_category2')
-				goods.drawGoods(goods.arrAllGoods, this, 4 , 9);
-			*/
-			switch (this.id) {
-				case 'div_category1':
-					goods.drawGoods(goods.arrAllGoods, this, 0, 3);
-					break;
-				case 'div_category2':
-					goods.drawGoods(goods.arrAllGoods, this, 4, 9);
-					break;
-				case 'div_category3':
-					goods.drawGoods(goods.arrAllGoods, this, 10, 16);
-					break;
-				case 'div_category4':
-					goods.drawGoods(goods.arrAllGoods, this, 17, 20);
-					break;
-				case 'div_category5':
-					goods.drawGoods(goods.arrAllGoods, this, 21, 26);
-					break;
-				case 'div_category6':
-					goods.drawGoods(goods.arrAllGoods, this, 27, 33);
-					break;
-				case 'div_category7':
-					goods.drawGoods(goods.arrAllGoods, this, 34, 46);
-					break;
-				case 'div_category8':
-					goods.drawGoods(goods.arrAllGoods, this, 47, 50);
-					break;
-				default:
-					break;
-			}
-				
-			$('#'+this.id).attr("value", 1);
-		}
-		else {
-			$(this).html(html);
-			$('#'+this.id).attr("value", 0);
-		}
-		
-	});
-
 
 </script>
 
