@@ -340,8 +340,10 @@
 			
 			for (var i=0; i<orderList.length; i++){
 				//innerHtml += '<li style="margin-left:3px">';
-				innerHtml += orderList[i].goodsNm;
-				innerHtml += ' ' + orderList[i].cnt + '개';
+				innerHtml += '<div id="div_root">';
+				innerHtml += '<span style="float: left">' + orderList[i].goodsNm + '</span>';
+				innerHtml += '<span style="float: right">' + orderList[i].cnt + '개</span>';
+				innerHtml += '</div>';
 				//innerHtml += '</li>';
 				innerHtml += '<br>';
 			}
