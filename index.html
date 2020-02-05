@@ -11,7 +11,7 @@
 		#div_container{
 		}
 		#div_root{
-			border-bottom: thin solid #BEBEBE;
+			<!-- border-bottom: thin solid #BEBEBE; -->
 			padding: 5px;
 			margin: auto;
 			background-color: white;
@@ -45,9 +45,11 @@
 			width: auto;
 		}
 		#div_category_container{
+			<!-- padding-bottom: 3px; -->
+			<!-- border-bottom: thin solid #BEBEBE -->
 		}
 		.div_category{
-			background-color: #E8E8E8;
+			background-color: #F0F0F0;
 			border-bottom: thin solid #BEBEBE;
 			<!-- height: auto; -->
 			width: auto;
@@ -159,12 +161,14 @@
 	</div>
 
 	<p></p>
-	<span> 추가 요청 사항 : <input type="text", id="extraField" style="width:100%"> </input> </span>
+	<!-- <div style="border-bottom: thin solid #BEBEBE"> </div> -->
+
+
+	<div id="orders" style="border-top:thick solid #BEBEBE; border-bottom: thick solid #BEBEBE; padding:5px">
+	</div>
 	<p></p>
 
-
-	<div id="orders" style="border:1px solid; padding:5px">
-	</div>
+	<span style="font-weight:bold"> 추가 요청 사항 <input type="text", id="extraField" style="width:100%"> </input> </span>
 	
 <br><br>
 <button id="order-btn"
@@ -329,7 +333,9 @@
 			}
 			
 			var innerHtml = "";
-			innerHtml = '<span style="font-weight:bold">주문 내역:</span>';
+			innerHtml += '<div style="background-color: #F0F0F0; border-bottom: thin solid #BEBEBE">';
+			innerHtml += '<span style="font-weight:bold;">주문 내역</span>';
+			innerHtml += '</div>';
 			innerHtml += '<br>';
 			//innerHtml += '<ul class="columns" data-columns="1" style="padding-left:3; columns:1">';
 			
@@ -342,8 +348,9 @@
 			}
 			//innerHtml += '</ul>';
 			innerHtml += '<br>';
-			innerHtml += '<span style="font-weight:bold">주문 금액:  </span>';
-			innerHtml += '<span style="font-weight:bold">' + goodsTotAmt + '원'+ '</span>';
+			innerHtml += '<div style="border-top:thin solid #BEBEBE"> </div>';
+			innerHtml += '<span style="font-weight:bold; font-size:20px">주문 금액 </span>';
+			innerHtml += '<span style="font-weight:bold; font-size:20px; float:right">' + goodsTotAmt + '원'+ '</span>';
 			$('#orders').empty().append(innerHtml);
 			
 		}
