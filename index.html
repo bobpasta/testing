@@ -249,12 +249,12 @@
 			var innerHtml = "";
 			for (var i = start; i <= end; i++) {					
 				innerHtml += '<div id="div_root">';
-					innerHtml += '<div id="div_menu">'
+					innerHtml += '<div id="div_menu" style="word-break:keep-all">'
 						innerHtml += '<span id="input_name_'+goods[i].goodsId+'">' + goods[i].goodsNm + '</span>';
 						if (goods[i].goodsSubname)
-							innerHtml += '<br> <span style="font-size:80%; color:grey; word-break:break-word">' + goods[i].goodsSubname + '</span>';
+							innerHtml += '<br> <span style="font-size:80%; color:grey; word-break:keep-all">' + goods[i].goodsSubname + '</span>';
 						if (goods[i].goodsSubname2)
-							innerHtml += '<br> <span style="font-size:80%; color:grey; word-break:break-word">' + goods[i].goodsSubname2 + '</span>';
+							innerHtml += '<br> <span style="font-size:80%; color:grey; word-break:keep-all">' + goods[i].goodsSubname2 + '</span>';
 					innerHtml += '</div>';
 					innerHtml += '<div id="div_price_quantity">';
 						innerHtml += '<div id="div_price">';
@@ -443,9 +443,9 @@
 	//세트메뉴
 	goods.arrAllGoods.push({goodsId:"0",goodsUnprc:26000,goodsNm:"프리미엄 막걸리와 치즈전의 만남 (2인)", goodsSubname:"프리미엄막걸리 혹은 샴페인막걸리 + 모짜렐라김치전M 혹은 체다듬뿍감자전M", cnt:0});
 	goods.arrAllGoods.push({goodsId:"1",goodsUnprc:26000,goodsNm:"모듬전과 반접시 굴무침 (2-3인)", cnt:0});
-	goods.arrAllGoods.push({goodsId:"2",goodsUnprc:25000,goodsNm:"판타스틱4세트 (치즈전선택1+볶음류선택1) + 꿀토마토와 주먹밥", goodsSubname:"모짜렐라김치전, 체다듬뿍감자전, 불고기치즈파전(매운), 꿀고구마치즈전 중 선택 1",
+	goods.arrAllGoods.push({goodsId:"2",goodsUnprc:25000,goodsNm:"판타스틱4세트 (치즈전 선택 1 + 볶음류 선택 1) + 꿀토마토와 주먹밥", goodsSubname:"모짜렐라김치전, 체다듬뿍감자전, 불고기치즈파전(매운), 꿀고구마치즈전 중 선택 1",
 	                        goodsSubname2:"고추장불고기, 무뼈닭발볶음, 오돌뼈볶음 중 선택1", cnt:0});
-	goods.arrAllGoods.push({goodsId:"3",goodsUnprc:20000,goodsNm:"치떡치떡세트 (치즈전+골라먹는떡볶이) (2인)", goodsSubname:"모짜렐라김치전, 체다듬뿍감자전, 불고기치즈파전, 옥수수치즈전, 꿀고구마치즈전 중 선택 1", cnt:0});
+	goods.arrAllGoods.push({goodsId:"3",goodsUnprc:20000,goodsNm:"치떡치떡세트 (치즈전 + 골라먹는떡볶이) (2인)", goodsSubname:"모짜렐라김치전, 체다듬뿍감자전, 불고기치즈파전, 옥수수치즈전, 꿀고구마치즈전 중 선택 1", cnt:0});
 	goods.arrAllGoods.push({goodsId:"4",goodsUnprc:15000,goodsNm:"내맘대로세트 두가지 (2인)", goodsSubname:"김치전, 채감자전, 부추전, 두부전, 새송이전, 애호박전, 깻잎전, 동태전, 고추전, 삼색꼬치 중 선택 2", cnt:0});
 	goods.arrAllGoods.push({goodsId:"5",goodsUnprc:20000,goodsNm:"내맘대로세트 세가지 (3인)", goodsSubname:"김치전, 채감자전, 부추전, 두부전, 새송이전, 애호박전, 깻잎전, 동태전, 고추전, 삼색꼬치 중 선택 3", cnt:0});
 	
