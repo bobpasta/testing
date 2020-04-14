@@ -5,7 +5,7 @@
 
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title> CSS 나누기 </title>
+	<title> 밥파스타 </title>
 	
 	<style>
 		#div_container{
@@ -102,57 +102,57 @@
 <p></p>
 <div id="container">
 	<div id="div_category_container">
-		<div id="div_category1" class="div_category" num = 1 value = 0 title = "스테이크 및 피자 &#x25BC">
-		스테이크 및 피자 &#x25BC
+		<div id="div_category1" class="div_category" num = 1 value = 0 title = "세트메뉴 &#x25BC">
+		세트메뉴 &#x25BC
 		<p>
 		</p>
 		</div>
 		<div id="div_non_category1"></div>
 		
-		<div id="div_category2" class="div_category" num = 2 value = 0 title = "토마토 파스타 &#x25BC">
-		토마토 파스타 &#x25BC
+		<div id="div_category2" class="div_category" num = 2 value = 0 title = "겨울메뉴 &#x25BC">
+		겨울메뉴 &#x25BC
 		<p>
 		</p>
 		</div>
 		<div id="div_non_category2"></div>
 		
-		<div id="div_category3" class="div_category" num = 3 value = 0 title = "크림 파스타 &#x25BC">
-		크림 파스타 &#x25BC
+		<div id="div_category3" class="div_category" num = 3 value = 0 title = "대표메뉴 &#x25BC">
+		대표메뉴 &#x25BC
 		<p>
 		</p>
 		</div>
 		<div id="div_non_category3"></div>
 		
-		<div id="div_category4" class="div_category" num = 4 value = 0 title = "오일 파스타 &#x25BC">
-		오일 파스타 &#x25BC
+		<div id="div_category4" class="div_category" num = 4 value = 0 title = "기본에 충실한 전요리 &#x25BC">
+		기본에 충실한 전요리 &#x25BC
 		<p>
 		</p>
 		</div>
 		<div id="div_non_category4"></div>
 		
-		<div id="div_category5" class="div_category" num = 5 value = 0 title = "토마토 리조또 &#x25BC">
-		토마토 리조또 &#x25BC
+		<div id="div_category5" class="div_category" num = 5 value = 0 title = "치즈덕후를 위한 100%자연치즈 듬뿍 &#x25BC">
+		치즈덕후를 위한 100%자연치즈 듬뿍 &#x25BC
 		<p>
 		</p>
 		</div>
 		<div id="div_non_category5"></div>
 		
-		<div id="div_category6" class="div_category" num = 6 value = 0 title = "크림 리조또 &#x25BC">
-		크림 리조또 &#x25BC
+		<div id="div_category6" class="div_category" num = 6 value = 0 title = "따뜻한 국물요리 &#x25BC">
+		따뜻한 국물요리 &#x25BC
 		<p>
 		</p>
 		</div>
 		<div id="div_non_category6"></div>
 		
-		<div id="div_category7" class="div_category" num = 7 value = 0 title = "음료 &#x25BC">
-		음료 &#x25BC
+		<div id="div_category7" class="div_category" num = 7 value = 0 title = "입가심 메뉴 &#x25BC">
+		입가심 메뉴&#x25BC
 		<p>
 		</p>
 		</div>
 		<div id="div_non_category7"></div>
 		
-		<div id="div_category8" class="div_category" num = 8 value = 0 title = "마늘빵 및 세트 변경 &#x25BC">
-		마늘빵 및 세트 변경 &#x25BC
+		<div id="div_category8" class="div_category" num = 8 value = 0 title = "추가메뉴 (다른메뉴와 함께 주문해주세요) &#x25BC">
+		추가메뉴 (다른메뉴와 함께 주문해주세요) &#x25BC
 		<p>
 		</p>
 		</div>
@@ -204,28 +204,28 @@
 		if (flag == 0) {
 			switch (num) {
 				case '1':
-					goods.drawGoods(goods.arrAllGoods, $('#div_non_category'+num), 0, 3);
+					goods.drawGoods(goods.arrAllGoods, $('#div_non_category'+num), 0, 5);
 					break;
 				case '2':
-					goods.drawGoods(goods.arrAllGoods, $('#div_non_category'+num), 4, 9);
+					goods.drawGoods(goods.arrAllGoods, $('#div_non_category'+num), 6, 9);
 					break;
 				case '3':
-					goods.drawGoods(goods.arrAllGoods, $('#div_non_category'+num), 10, 16);
+					goods.drawGoods(goods.arrAllGoods, $('#div_non_category'+num), 10, 13);
 					break;
 				case '4':
-					goods.drawGoods(goods.arrAllGoods, $('#div_non_category'+num), 17, 20);
+					goods.drawGoods(goods.arrAllGoods, $('#div_non_category'+num), 14, 18);
 					break;
 				case '5':
-					goods.drawGoods(goods.arrAllGoods, $('#div_non_category'+num), 21, 26);
+					goods.drawGoods(goods.arrAllGoods, $('#div_non_category'+num), 19, 22);
 					break;
 				case '6':
-					goods.drawGoods(goods.arrAllGoods, $('#div_non_category'+num), 27, 33);
+					goods.drawGoods(goods.arrAllGoods, $('#div_non_category'+num), 23, 25);
 					break;
 				case '7':
-					goods.drawGoods(goods.arrAllGoods, $('#div_non_category'+num), 34, 46);
+					goods.drawGoods(goods.arrAllGoods, $('#div_non_category'+num), 26, 30);
 					break;
 				case '8':
-					goods.drawGoods(goods.arrAllGoods, $('#div_non_category'+num), 47, 50);
+					goods.drawGoods(goods.arrAllGoods, $('#div_non_category'+num), 31, 37);
 					break;
 				default:
 					break;
@@ -241,7 +241,7 @@
 	});
 
 	function Goods(){
-		var tableNum = 0;
+		var tableNum = 1;
 		var p = this;
 		this.arrAllGoods = new Array();
 
@@ -251,6 +251,10 @@
 				innerHtml += '<div id="div_root">';
 					innerHtml += '<div id="div_menu">'
 						innerHtml += '<span id="input_name_'+goods[i].goodsId+'">' + goods[i].goodsNm + '</span>';
+						if (goods[i].goodsSubname)
+							innerHtml += '<br> <span style="font-size:80%; color:grey">' + goods[i].goodsSubname + '</span>';
+						if (goods[i].goodsSubname2)
+							innerHtml += '<br> <span style="font-size:80%; color:grey">' + goods[i].goodsSubname2 + '</span>';
 					innerHtml += '</div>';
 					innerHtml += '<div id="div_price_quantity">';
 						innerHtml += '<div id="div_price">';
@@ -378,7 +382,7 @@
 					var order = orderList[i];
 					$.ajax({
 						type: "GET",
-						url: "https://script.google.com/macros/s/AKfycbxJFXBRqM4_Y4E_w5qlI8QVmHd6HszYbqiyr65er5MEkGXA_0Eg/exec",
+						//url: "https://script.google.com/macros/s/AKfycbxJFXBRqM4_Y4E_w5qlI8QVmHd6HszYbqiyr65er5MEkGXA_0Eg/exec",
 						data: {
 						  "메뉴": order.goodsNm,
 						  "개수": order.cnt,
@@ -403,7 +407,7 @@
 			if ($('#extraField').val()) {
 				$.ajax({
 					type: "GET",
-					url: "https://script.google.com/macros/s/AKfycbxJFXBRqM4_Y4E_w5qlI8QVmHd6HszYbqiyr65er5MEkGXA_0Eg/exec",
+					//url: "https://script.google.com/macros/s/AKfycbxJFXBRqM4_Y4E_w5qlI8QVmHd6HszYbqiyr65er5MEkGXA_0Eg/exec",
 					data: {
 					  "메뉴": $('#extraField').val(),
 					  "개수": 0,
@@ -425,7 +429,7 @@
 			}
 			if (orderList.length > 0) {
 				var amountHex = (totalAmount*Math.pow(2, 19)).toString(16);
-				location.href = 'kakaotalk://kakaopay/money/to/qr?qr_code=281006011118310251003045'+amountHex;
+				//location.href = 'kakaotalk://kakaopay/money/to/qr?qr_code=281006011118310251003045'+amountHex;
 			}
 		});
 		
@@ -436,70 +440,60 @@
 	var goods = new Goods();
 	
 	//jstl로 전체 상품 목록 미리 세팅
-	goods.arrAllGoods.push({goodsId:"0",goodsUnprc:18000,goodsNm:"부채살스테이크", cnt:0});
-	goods.arrAllGoods.push({goodsId:"1",goodsUnprc:16000,goodsNm:"차돌박이 샐러드피자", cnt:0});
-	goods.arrAllGoods.push({goodsId:"2",goodsUnprc:15000,goodsNm:"고르곤졸라 피자", cnt:0});
-	goods.arrAllGoods.push({goodsId:"3",goodsUnprc:12000,goodsNm:"마르게리따 피자", cnt:0});
+	//세트메뉴
+	goods.arrAllGoods.push({goodsId:"0",goodsUnprc:26000,goodsNm:"프리미엄 막걸리와 치즈전의 만남 (2인)", goodsSubname:"프리미엄막걸리 혹은 샴페인막걸리 + 모짜렐라김치전M 혹은 체다듬뿍감자전M", cnt:0});
+	goods.arrAllGoods.push({goodsId:"1",goodsUnprc:26000,goodsNm:"모듬전과 반접시 굴무침 (2-3인)", cnt:0});
+	goods.arrAllGoods.push({goodsId:"2",goodsUnprc:25000,goodsNm:"판타스틱4세트 (치즈전선택1+볶음류선택1) + 꿀토마토와 주먹밥", goodsSubname:"모짜렐라김치전, 체다듬뿍감자전, 불고기치즈파전(매운), 꿀고구마치즈전 중 선택1",
+	                        goodsSubname2:"고추장불고기, 무뼈닭발볶음, 오돌뼈볶음 중 선택1", cnt:0});
+	goods.arrAllGoods.push({goodsId:"3",goodsUnprc:20000,goodsNm:"치떡치떡세트 (치즈전+골라먹는떡볶이) (2인)", goodsSubname:"모짜렐라김치전, 체다듬뿍감자전, 불고기치즈파전, 옥수수치즈전, 꿀고구마치즈전 중 선택1", cnt:0});
+	goods.arrAllGoods.push({goodsId:"4",goodsUnprc:15000,goodsNm:"내맘대로세트 두가지 (2인)", goodsSubname:"김치전, 채감자전, 부추전, 두부전, 새송이전, 애호박전, 깻잎전, 동태전, 고추전, 삼색꼬치 중 선택 2", cnt:0});
+	goods.arrAllGoods.push({goodsId:"5",goodsUnprc:20000,goodsNm:"내맘대로세트 세가지 (3인)", goodsSubname:"김치전, 채감자전, 부추전, 두부전, 새송이전, 애호박전, 깻잎전, 동태전, 고추전, 삼색꼬치 중 선택 3", cnt:0});
 	
-	//토마토 파스타
-	goods.arrAllGoods.push({goodsId:"4",goodsUnprc:12000,goodsNm:"뽀모도로 파스타", cnt:0});
-	goods.arrAllGoods.push({goodsId:"5",goodsUnprc:12500,goodsNm:"아마트리치아나 파스타", cnt:0});
-	goods.arrAllGoods.push({goodsId:"6",goodsUnprc:13000,goodsNm:"만조 토마토 파스타", cnt:0});
-	goods.arrAllGoods.push({goodsId:"7",goodsUnprc:13500,goodsNm:"해산물 토마토 파스타", cnt:0});
-	goods.arrAllGoods.push({goodsId:"8",goodsUnprc:15000,goodsNm:"빼쉐 뚝배기 파스타", cnt:0});
-	goods.arrAllGoods.push({goodsId:"9",goodsUnprc:12500,goodsNm:"볼로네제 파스타", cnt:0});
+	//겨울메뉴
+	goods.arrAllGoods.push({goodsId:"6",goodsUnprc:16000,goodsNm:"생굴회", cnt:0});
+	goods.arrAllGoods.push({goodsId:"7",goodsUnprc:16000,goodsNm:"굴전", cnt:0});
+	goods.arrAllGoods.push({goodsId:"8",goodsUnprc:15000,goodsNm:"무채 굴무침", cnt:0});
+	goods.arrAllGoods.push({goodsId:"9",goodsUnprc:25000,goodsNm:"홀닭홀닭 닭도리탕", cnt:0});
 
-	//크림 파스타
-	goods.arrAllGoods.push({goodsId:"10",goodsUnprc:12500,goodsNm:"까르보나라 파스타", cnt:0});
-	goods.arrAllGoods.push({goodsId:"11",goodsUnprc:6000,goodsNm:"까르보나라 파스타 10세 이하", cnt:0});
-	goods.arrAllGoods.push({goodsId:"12",goodsUnprc:13000,goodsNm:"새우날치알 파스타", cnt:0});
-	goods.arrAllGoods.push({goodsId:"13",goodsUnprc:12000,goodsNm:"알프레도소스 버섯 파스타", cnt:0});
-	goods.arrAllGoods.push({goodsId:"14",goodsUnprc:14000,goodsNm:"꽃게 로제 파스타 (한정판매)", cnt:0});
-	goods.arrAllGoods.push({goodsId:"15",goodsUnprc:14000,goodsNm:"만조 크림 파스타", cnt:0});
-	goods.arrAllGoods.push({goodsId:"16",goodsUnprc:14500,goodsNm:"해산물 크림 파스타", cnt:0});
+	//대표메뉴
+	goods.arrAllGoods.push({goodsId:"10",goodsUnprc:19000,goodsNm:"모듬전", cnt:0});
+	goods.arrAllGoods.push({goodsId:"11",goodsUnprc:15000,goodsNm:"두부와 볶음김치", cnt:0});
+	goods.arrAllGoods.push({goodsId:"12",goodsUnprc:16000,goodsNm:"고쌈비빔면", cnt:0});
+	goods.arrAllGoods.push({goodsId:"13",goodsUnprc:18000,goodsNm:"해물누룽지탕", cnt:0});
 	
-	//오일 파스타
-	goods.arrAllGoods.push({goodsId:"17",goodsUnprc:13500,goodsNm:"해산물 오일 파스타", cnt:0});
-	goods.arrAllGoods.push({goodsId:"18",goodsUnprc:10000,goodsNm:"알리오올리오", cnt:0});
-	goods.arrAllGoods.push({goodsId:"19",goodsUnprc:12000,goodsNm:"명란이봉골레", cnt:0});
-	goods.arrAllGoods.push({goodsId:"20",goodsUnprc:13000,goodsNm:"감베리판체타", cnt:0});
+	//기본에 충실한 전요리
+	goods.arrAllGoods.push({goodsId:"14",goodsUnprc:13000,goodsNm:"바삭한 채감자전", cnt:0});
+	goods.arrAllGoods.push({goodsId:"15",goodsUnprc:12000,goodsNm:"김치전", cnt:0});
+	goods.arrAllGoods.push({goodsId:"16",goodsUnprc:12000,goodsNm:"부추전", cnt:0});
+	goods.arrAllGoods.push({goodsId:"17",goodsUnprc:16000,goodsNm:"지글지글 해물파전", cnt:0});
+	goods.arrAllGoods.push({goodsId:"18",goodsUnprc:16000,goodsNm:"큼직큼직 새우전", cnt:0});
 	
-	//토마토 리조또
-	goods.arrAllGoods.push({goodsId:"21",goodsUnprc:13000,goodsNm:"뽀모도로 리조또", cnt:0});
-	goods.arrAllGoods.push({goodsId:"22",goodsUnprc:13500,goodsNm:"아마트리치아나 리조또", cnt:0});
-	goods.arrAllGoods.push({goodsId:"23",goodsUnprc:14000,goodsNm:"만조 토마토 리조또", cnt:0});
-	goods.arrAllGoods.push({goodsId:"24",goodsUnprc:14500,goodsNm:"해산물 토마토 리조또", cnt:0});
-	goods.arrAllGoods.push({goodsId:"25",goodsUnprc:16000,goodsNm:"빼쉐 뚝배기 리조또", cnt:0});
-	goods.arrAllGoods.push({goodsId:"26",goodsUnprc:13500,goodsNm:"볼로네제 리조또", cnt:0});
-
-	//크림 리조또
-	goods.arrAllGoods.push({goodsId:"27",goodsUnprc:13500,goodsNm:"까르보나라 리조또", cnt:0});
-	goods.arrAllGoods.push({goodsId:"28",goodsUnprc:7000,goodsNm:"까르보나라 리조또 10세 이하", cnt:0});
-	goods.arrAllGoods.push({goodsId:"29",goodsUnprc:14000,goodsNm:"새우날치알 크림 리조또", cnt:0});
-	goods.arrAllGoods.push({goodsId:"30",goodsUnprc:13000,goodsNm:"알프레도소스 버섯크림 리조또", cnt:0});
-	goods.arrAllGoods.push({goodsId:"31",goodsUnprc:15000,goodsNm:"꽃게 로제 리조또 (한정판매)", cnt:0});
-	goods.arrAllGoods.push({goodsId:"32",goodsUnprc:15500,goodsNm:"해산물 크림 리조또", cnt:0});
-	goods.arrAllGoods.push({goodsId:"33",goodsUnprc:15000,goodsNm:"만조 크림 리조또", cnt:0});
+	//치즈덕후를 위한 100%자연치즈 듬뿍
+	goods.arrAllGoods.push({goodsId:"19",goodsUnprc:17000,goodsNm:"모짜렐라김치전", cnt:0});
+	goods.arrAllGoods.push({goodsId:"20",goodsUnprc:17000,goodsNm:"체다듬뿍감자전", cnt:0});
+	goods.arrAllGoods.push({goodsId:"21",goodsUnprc:19000,goodsNm:"불고기치즈파전(매운)", cnt:0});
+	goods.arrAllGoods.push({goodsId:"22",goodsUnprc:17000,goodsNm:"꿀고구마치즈전", cnt:0});
 	
-	//음료
-	goods.arrAllGoods.push({goodsId:"34",goodsUnprc:6000,goodsNm:"버니니클래식", cnt:0});
-	goods.arrAllGoods.push({goodsId:"35",goodsUnprc:6000,goodsNm:"버니니블러쉬", cnt:0});
-	goods.arrAllGoods.push({goodsId:"36",goodsUnprc:6000,goodsNm:"레드와인 (150ml)", cnt:0});
-	goods.arrAllGoods.push({goodsId:"37",goodsUnprc:28000,goodsNm:"레드와인 (750ml)", cnt:0});
-	goods.arrAllGoods.push({goodsId:"38",goodsUnprc:6000,goodsNm:"비라모레띠", cnt:0});
-	goods.arrAllGoods.push({goodsId:"39",goodsUnprc:4000,goodsNm:"카스", cnt:0});
-	goods.arrAllGoods.push({goodsId:"40",goodsUnprc:6000,goodsNm:"호가든", cnt:0});
-	goods.arrAllGoods.push({goodsId:"41",goodsUnprc:2500,goodsNm:"콜라", cnt:0});
-	goods.arrAllGoods.push({goodsId:"42",goodsUnprc:2500,goodsNm:"스프라이트", cnt:0});
-	goods.arrAllGoods.push({goodsId:"43",goodsUnprc:2500,goodsNm:"웰치스 포도", cnt:0});
-	goods.arrAllGoods.push({goodsId:"44",goodsUnprc:2500,goodsNm:"오렌지 쥬스", cnt:0});
-	goods.arrAllGoods.push({goodsId:"45",goodsUnprc:2000,goodsNm:"커피", cnt:0});
-	goods.arrAllGoods.push({goodsId:"46",goodsUnprc:2500,goodsNm:"아이스 커피", cnt:0});
-
-	goods.arrAllGoods.push({goodsId:"47",goodsUnprc:5000,goodsNm:"세트 (음료: 콜라)", cnt:0});
-	goods.arrAllGoods.push({goodsId:"48",goodsUnprc:5000,goodsNm:"세트 (음료: 사이다)", cnt:0});
-	goods.arrAllGoods.push({goodsId:"49",goodsUnprc:5000,goodsNm:"세트 (음료: 커피)", cnt:0});
-	goods.arrAllGoods.push({goodsId:"50",goodsUnprc:500,goodsNm:"마늘빵", cnt:0});
+	//따뜻한 국물요리
+	goods.arrAllGoods.push({goodsId:"23",goodsUnprc:15000,goodsNm:"개운한 어묵전골", cnt:0});
+	goods.arrAllGoods.push({goodsId:"24",goodsUnprc:15000,goodsNm:"얼큰 김치찌개", cnt:0});
+	goods.arrAllGoods.push({goodsId:"25",goodsUnprc:17000,goodsNm:"칼칼한 해물짬뽕탕", cnt:0});
+	
+	//입가심 메뉴
+	goods.arrAllGoods.push({goodsId:"26",goodsUnprc:17000,goodsNm:"쫄깃한 무뼈닭발볶음", cnt:0});
+	goods.arrAllGoods.push({goodsId:"27",goodsUnprc:15000,goodsNm:"오독오독 오돌뼈볶음", cnt:0});
+	goods.arrAllGoods.push({goodsId:"28",goodsUnprc:16000,goodsNm:"고추장불고기", cnt:0});
+	goods.arrAllGoods.push({goodsId:"29",goodsUnprc:19000,goodsNm:"골뱅이무침과 소면", cnt:0});
+	goods.arrAllGoods.push({goodsId:"30",goodsUnprc:17000,goodsNm:"홍어무침(간재미무침)", cnt:0});
+	
+	//추가메뉴
+	goods.arrAllGoods.push({goodsId:"31",goodsUnprc:13000,goodsNm:"골라먹는 떡볶이", cnt:0});
+	goods.arrAllGoods.push({goodsId:"32",goodsUnprc:12000,goodsNm:"옛날소세지", cnt:0});
+	goods.arrAllGoods.push({goodsId:"33",goodsUnprc:12000,goodsNm:"스팸구이와 계란후라이", cnt:0});
+	goods.arrAllGoods.push({goodsId:"34",goodsUnprc:4500,goodsNm:"꿀덮은 토마토", cnt:0});
+	goods.arrAllGoods.push({goodsId:"35",goodsUnprc:5000,goodsNm:"추억의도시락", cnt:0});
+	goods.arrAllGoods.push({goodsId:"36",goodsUnprc:5500,goodsNm:"해물듬뿍라면", cnt:0});
+	goods.arrAllGoods.push({goodsId:"37",goodsUnprc:3000,goodsNm:"주먹밥", cnt:0});
 
 	goods.afterProc();
 	//goods.drawGoods(goods.arrAllGoods);
