@@ -16,8 +16,9 @@
 			margin: auto;
 			background-color: white;
 			overflow: hidden;
+			<!-- position:relative; -->
 		}
-		#div_menu{
+		.div_menu{
 			width: 70%;
 			float: left;
 			<!-- padding-left: 5px; -->
@@ -26,7 +27,7 @@
 		}
 		#div_price_quantity{
 			margin: auto;
-			float: right;
+			float: left;
 			width: 30%;
 			background-color: white;
 		}
@@ -83,6 +84,35 @@
 			margin: 0;
 			float: right;
 		}
+		#btn_subminus{
+			width: 20px;
+			height: 30px;
+			background-color: Transparent;
+			border-style: none;
+			border-right: thin solid black;
+			text-align:center;
+			padding: 0;
+			margin: 0;
+			float: left;
+		}
+		#btn_subnum{
+			width: 40px;
+			height: 30px;
+			background-color: Transparent;
+			border-style: none;
+			pointer-events: none;
+		}
+		#btn_subplus{
+			width: 20px;
+			height: 30px;
+			background-color: Transparent;
+			border-style: none;
+			border-left: thin solid black;
+			text-align: center;
+			padding: 0;
+			margin: 0;
+			float: right;
+		}
 
 	</style>
 
@@ -111,7 +141,7 @@
 		<p>
 		</p>
 		</div>
-		<div id="div_non_category1"></div>
+		<div id="div_non_category1" value = 0></div>
 		
 		<div id="div_category2" class="div_category" num = 2 value = 0 title = "겨울메뉴 &#x25BC">
 		겨울메뉴 &#x25BC
@@ -298,7 +328,6 @@
 </body>
 
 <script>
-	
 	$('.div_category').click(function(){
 		flag = $(this).attr("value");
 		num = $(this).attr("num");
@@ -379,7 +408,48 @@
 		}
 		
 	});
+	
 
+	$('#div_non_category1').click(function(event) {
+		console.log(event.target.id);
+		if (event.target.id === 'input_name_0' || event.target.id === 'input_subname_0' || event.target.id === 'input_subname2_0' || event.target.id === 'div_menu_0') {
+			flag = $(this).attr("value");
+			console.log("flag is : " + flag);
+			if (flag == 0) {
+				var innerHtml = "";
+				for (var i = 55; i<=57; i++) {	
+					innerHtml += '<div id="sub_menu_root" style="clear: both; padding-left: 10px; float:left; width: 70%; background-color:#F0F0F0">';
+					innerHtml += '<span style="float:left; width:100%"> 프리미엄 막걸리 : </span>';
+						innerHtml += '<div id="div_menu_sub" style="float: left; width:70%; font-size: smaller; word-break:keep-all">'
+						innerHtml += '<span id="input_name_'+goods.arrAllGoods[i].goodsId+'">' + goods.arrAllGoods[i].goodsNm + '</span>';
+						if (goods.arrAllGoods[i].goodsSubname)
+							innerHtml += '<br> <span id="input_subname_'+goods.arrAllGoods[i].goodsId+'"' + 'style="font-size:80%; color:grey; word-break:keep-all">' + goods.arrAllGoods[i].goodsSubname + '</span>';
+						if (goods.arrAllGoods[i].goodsSubname2)
+							innerHtml += '<br> <span id="input_subname2_'+goods.arrAllGoods[i].goodsId+'"' + 'style="font-size:80%; color:grey; word-break:keep-all">' + goods.arrAllGoods[i].goodsSubname2 + '</span>';
+						innerHtml += '</div>';
+						innerHtml += '<div id="div_price_quantity_sub" style="float:left; width:30%;">';
+							innerHtml += '<div id="div_quantity">';
+							innerHtml += '<button id="btn_subminus" onclick="goods.minus(\''+goods.arrAllGoods[i].goodsId+'\');"> - </button>';
+							innerHtml += '<button id="btn_subnum">';
+
+							innerHtml += '<span id="input_cnt_'+goods.arrAllGoods[i].goodsId+'">' + goods.arrAllGoods[i].cnt + '</span>';
+							innerHtml += '</button>';
+							innerHtml += '<button id="btn_subplus" onclick=" goods.plus(\''+goods.arrAllGoods[i].goodsId+'\');"> + </button>';
+							innerHtml += '</div>';
+						innerHtml += '</div>';
+					innerHtml += '</div>';
+				}
+
+				$(this).attr("value", 1);
+			}
+			else {
+				$('#div_root').html('');
+				$().attr("value", 0);
+			}
+			$('#div_root').append(innerHtml);
+		}
+	});
+	
 	function Goods(){
 		var tableNum = 1;
 		var p = this;
@@ -389,12 +459,13 @@
 			var innerHtml = "";
 			for (var i = start; i <= end; i++) {					
 				innerHtml += '<div id="div_root">';
-					innerHtml += '<div id="div_menu" style="word-break:keep-all">'
+				innerHtml += '<div id="top">';
+					innerHtml += '<div id="div_menu_'+i+'" class="div_menu" style="word-break:keep-all">'
 						innerHtml += '<span id="input_name_'+goods[i].goodsId+'">' + goods[i].goodsNm + '</span>';
 						if (goods[i].goodsSubname)
-							innerHtml += '<br> <span style="font-size:80%; color:grey; word-break:keep-all">' + goods[i].goodsSubname + '</span>';
+							innerHtml += '<br> <span id="input_subname_'+goods[i].goodsId+'"' + 'style="font-size:80%; color:grey; word-break:keep-all">' + goods[i].goodsSubname + '</span>';
 						if (goods[i].goodsSubname2)
-							innerHtml += '<br> <span style="font-size:80%; color:grey; word-break:keep-all">' + goods[i].goodsSubname2 + '</span>';
+							innerHtml += '<br> <span id="input_subname2_'+goods[i].goodsId+'"' + 'style="font-size:80%; color:grey; word-break:keep-all">' + goods[i].goodsSubname2 + '</span>';
 					innerHtml += '</div>';
 					innerHtml += '<div id="div_price_quantity">';
 						innerHtml += '<div id="div_price">';
@@ -407,9 +478,10 @@
 						//innerHtml += '<button id="btn_num">' + '<span id="input_cnt_'+goods[i].goodsId+'">' + goods[i].cnt + '</span> </button>';
 						innerHtml += '<span id="input_cnt_'+goods[i].goodsId+'">' + goods[i].cnt + '</span>';
 						innerHtml += '</button>';
-						innerHtml += '<button  id="btn_plus" onclick=" goods.plus(\''+goods[i].goodsId+'\');"> + </button>';
+						innerHtml += '<button id="btn_plus" onclick=" goods.plus(\''+goods[i].goodsId+'\');"> + </button>';
 						innerHtml += '</div>';
 					innerHtml += '</div>';
+				innerHtml += '</div>';
 				innerHtml += '</div>';
 			}
 			return innerHtml;
@@ -420,13 +492,6 @@
 			//innerHtml += 
 			innerHtml += this.drawItem(goods, start, end);
 			$(category).append(innerHtml);
-
-		}
-		this.drawGoods2 = function(goods) {
-			var innerHtml = "";
-			//innerHtml += 
-			innerHtml += this.drawItem(goods, 3, 5);
-			$('#div_category2').append(innerHtml);
 
 		}
 		
