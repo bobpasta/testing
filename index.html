@@ -111,7 +111,7 @@
 			border-style: none;
 			pointer-events: none;
 		}
-		#btn_subplus{
+		.btn_subplus{
 			width: 20px;
 			height: 30px;
 			background-color: Transparent;
@@ -418,7 +418,7 @@
 		
 	});
 
-	function draw_sub_menu(start, end){
+	function draw_sub_menu(start, end, submenu_count){
 		var innerHtml = "";
 		for (var i = start; i<=end; i++) {	
 			innerHtml += '<div id="div_menu" style="float: left; width:70%; font-size: smaller; word-break:keep-all">'
@@ -435,7 +435,9 @@
 
 				innerHtml += '<span id="input_cnt_'+goods.arrAllGoods[i].goodsId+'">' + goods.arrAllGoods[i].cnt + '</span>';
 				innerHtml += '</button>';
-				innerHtml += '<button id="btn_subplus" onclick=" goods.plus(\''+goods.arrAllGoods[i].goodsId+'\');"> + </button>';
+				innerHtml += '<button class="btn_subplus" id="btn_subplus_'+i+'" onclick="goods.plus(\''+goods.arrAllGoods[i].goodsId+'\');"> + </button>';
+				//세트 + 막는 코드 : innerHtml += '<button class="btn_subplus" id="btn_subplus_'+i+'" onclick="goods.subplus(\''+goods.arrAllGoods[i].goodsId+'\','+submenu_count+');"> + </button>';
+
 				innerHtml += '</div>';
 			innerHtml += '</div>';
 		}
@@ -448,11 +450,11 @@
 			if (flag == 0) {
 				var innerHtml = "";
 				innerHtml += '<span style="float:left; width:100%; margin-left: -8px"> 샴페인 막걸리 : </span>';
-				innerHtml += draw_sub_menu(145, 147);
+				innerHtml += draw_sub_menu(145, 147, goods.arrAllGoods[0].cnt);
 				innerHtml += '<span style="float:left; width:100%;  margin-left: -8px; border-top:thin solid black"> 프리미엄 막걸리 : </span>';
-				innerHtml += draw_sub_menu(148, 151);
+				innerHtml += draw_sub_menu(148, 151, goods.arrAllGoods[0].cnt);
 				innerHtml += '<span style="float:left; width:100%;  margin-left: -8px; border-top:thin solid black"> 전 : </span>';
-				innerHtml += draw_sub_menu(152, 153);
+				innerHtml += draw_sub_menu(152, 153, goods.arrAllGoods[0].cnt);
 				
 				$('#sub_menu_root_0').attr("value", 1);
 				$('#sub_menu_root_0').attr("style", "clear: both; padding:10px; float:left; width: 70%; background-color:#F0F0F0");
@@ -469,9 +471,9 @@
 			if (flag == 0) {
 				var innerHtml = "";
 				innerHtml += '<span style="float:left; width:100%; margin-left: -8px"> 치즈전 : </span>';
-				innerHtml += draw_sub_menu(154, 157);
+				innerHtml += draw_sub_menu(154, 157, goods.arrAllGoods[2].cnt);
 				innerHtml += '<span style="float:left; width:100%;  margin-left: -8px; margin-top:5px; border-top:thin solid black"> 볶음류 : </span>';
-				innerHtml += draw_sub_menu(158, 160);
+				innerHtml += draw_sub_menu(158, 160, goods.arrAllGoods[2].cnt);
 				
 				$('#sub_menu_root_2').attr("value", 1);
 				$('#sub_menu_root_2').attr("style", "clear: both; padding:10px; float:left; width: 70%; background-color:#F0F0F0");
@@ -488,7 +490,7 @@
 			if (flag == 0) {
 				var innerHtml = "";
 				innerHtml += '<span style="float:left; width:100%; margin-left: -8px"> 치즈전 : </span>';
-				innerHtml += draw_sub_menu(161, 165);
+				innerHtml += draw_sub_menu(161, 165, goods.arrAllGoods[3].cnt);
 				
 				$('#sub_menu_root_3').attr("value", 1);
 				$('#sub_menu_root_3').attr("style", "clear: both; padding:10px; float:left; width: 70%; background-color:#F0F0F0");
@@ -505,7 +507,7 @@
 			if (flag == 0) {
 				var innerHtml = "";
 				innerHtml += '<span style="float:left; width:100%; margin-left: -8px"> 두가지전 : </span>';
-				innerHtml += draw_sub_menu(166, 175);
+				innerHtml += draw_sub_menu(166, 175, goods.arrAllGoods[4].cnt);
 				
 				$('#sub_menu_root_4').attr("value", 1);
 				$('#sub_menu_root_4').attr("style", "clear: both; padding:10px; float:left; width: 70%; background-color:#F0F0F0");
@@ -522,7 +524,7 @@
 			if (flag == 0) {
 				var innerHtml = "";
 				innerHtml += '<span style="float:left; width:100%; margin-left: -8px"> 세가지전 : </span>';
-				innerHtml += draw_sub_menu(176, 185);
+				innerHtml += draw_sub_menu(176, 185, goods.arrAllGoods[5].cnt);
 				
 				$('#sub_menu_root_5').attr("value", 1);
 				$('#sub_menu_root_5').attr("style", "clear: both; padding:10px; float:left; width: 70%; background-color:#F0F0F0");
@@ -590,7 +592,15 @@
 					break;
 				}
 			}
-			
+			/*
+			세트 시킨 이상으로 + 못하게 하는 코드
+			if (trgtGoodsId == 0) {
+				for (var i = 145; i<=153; i++) {
+					str = "#btn_subplus_"+i;
+					str2 = "goods.subplus(\'" + i + "\'," + goods.arrAllGoods[trgtGoodsId].cnt+");";
+					$(str).attr("onclick", str2);
+				}
+			}*/
 			p.afterProc();			
 		}
 		
@@ -605,6 +615,55 @@
 			
 			p.afterProc();
 		}
+		
+		this.subplus = function (trgtGoodsId, submenu_count){
+			console.log(submenu_count);
+			for(var i=0;i<p.arrAllGoods.length;i++){
+				if(p.arrAllGoods[i].goodsId==trgtGoodsId){
+					if (p.arrAllGoods[i].cnt < submenu_count) //세트 개수에 따라서 cnt 안올려줌
+						p.arrAllGoods[i].cnt++;
+					break;
+				}
+			}
+			
+			p.afterProc();
+			//p.afterProcForSubMenu(trgtGoodsId);
+		}
+		
+		this.subminus = function (trgtGoodsId){
+			for(var i=0;i<p.arrAllGoods.length;i++){
+				if(p.arrAllGoods[i].goodsId==trgtGoodsId){
+					if(p.arrAllGoods[i].cnt==0) break;
+					p.arrAllGoods[i].cnt--;
+					break;
+				}
+			}
+			
+			p.afterProc();
+		}
+		
+		/*
+		세트 시킨 이상으로 + 못하게 하는 코드
+		this.afterProcForSubMenu = function(id) {
+			str = "#btn_subplus_"+id;
+			str2 = "";
+			if (id >= 145 && id<=153) {
+				str2 = "goods.subplus(\'" + id + "\'," + goods.arrAllGoods[0].cnt+");";
+			}
+			else if (id >= 154 && id<=160) {
+				str2 = "goods.subplus(\'" + id + "\'," + goods.arrAllGoods[2].cnt+");";
+			}
+			else if (id >= 161 && id<=165) {
+				str2 = "goods.subplus(\'" + id + "\'," + goods.arrAllGoods[3].cnt+");";
+			}
+			else if (id >= 166 && id<=175) {
+				str2 = "goods.subplus(\'" + id + "\'," + goods.arrAllGoods[4].cnt+");";
+			}
+			else if (id >= 176 && id<=185) {
+				str2 = "goods.subplus(\'" + id + "\'," + goods.arrAllGoods[5].cnt+");";
+			}
+			$(str).attr("onclick", str2);
+		}*/
 		
 		var orderList = [];
 		this.afterProc = function (){
