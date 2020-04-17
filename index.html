@@ -422,7 +422,7 @@
 		var innerHtml = "";
 		for (var i = start; i<=end; i++) {	
 			innerHtml += '<div id="div_menu" style="float: left; width:70%; font-size: smaller; word-break:keep-all">'
-			innerHtml += '<span id="input_name_'+goods.arrAllGoods[i].goodsId+'">' + goods.arrAllGoods[i].goodsNm + '</span>';
+			innerHtml += '<span id="input_name_'+goods.arrAllGoods[i].goodsId+'">' + goods.arrAllGoods[i].goodsNmForSub + '</span>';
 			if (goods.arrAllGoods[i].goodsSubname)
 				innerHtml += '<br> <span id="input_subname_'+goods.arrAllGoods[i].goodsId+'"' + 'style="font-size:80%; color:grey; word-break:keep-all">' + goods.arrAllGoods[i].goodsSubname + '</span>';
 			if (goods.arrAllGoods[i].goodsSubname2)
@@ -923,51 +923,51 @@
 
 	//세트 메뉴
 	//프리미엄 막걸리와 치즈전의 만남:
-	goods.arrAllGoods.push({goodsId:"145",goodsUnprc:0,goodsNm:"30. 복순도가 손 막걸리 935ml 6.5도 (세트 1)", goodsSubname:"울산광역시 복순도가", goodsSubname2:"#박복순 할머니께서 빚은 #가볍고 청량감이 풍부 #새콤 #원조샴페인막걸리", cnt:0});
-	goods.arrAllGoods.push({goodsId:"146",goodsUnprc:0,goodsNm:"31. 스파클링 막걸리 산소 940ml 6.8도 (세트 1)", goodsSubname:"전남장성 청산녹수", goodsSubname2:"#無감미료 #자연탄산 그대로의 균형잡힌 맛의 샴페인 막걸리", cnt:0});
-	goods.arrAllGoods.push({goodsId:"147",goodsUnprc:0,goodsNm:"32. 스트로우베리 스파클링 막걸리 940ml 6.8도 (세트 1)", goodsSubname:"전남장성 청산녹수", goodsSubname2:"#無아스파탐 #딸기품종 설향으로 만든 달콤한 샴페인 막걸리 #데이트중이시라면", cnt:0});
-	goods.arrAllGoods.push({goodsId:"148",goodsUnprc:0,goodsNm:"33. 해창9도 900ml 9도 (세트 1)", goodsSubname:"전남해남 해창주조", goodsSubname2:"#대중버전보다 숙성시간이 길어 단맛이 강하고 목넘김이 부드러움 #양조장 특유의 두터운 입자감은 옛날 귀한 손님께 내놓던 가양주의 느낌", cnt:0});
-	goods.arrAllGoods.push({goodsId:"149",goodsUnprc:0,goodsNm:"34. 세종대왕 어주 500ml 13도 (세트 1)", goodsSubname:"충북처원 장희도가", goodsSubname2:"#세종대왕 제위시절 쓰여진 벽향주 주방문을 이용해 재현한 술 #90일 이상의 숙성 #몽글몽글한 자연적인 단맛이 도는 고급 탁주", cnt:0});
-	goods.arrAllGoods.push({goodsId:"150",goodsUnprc:0,goodsNm:"35. 삼해탁주 500ml 13도 (세트 1)", goodsSubname:"서울특별시 삼해소주가", goodsSubname2:"#조선시대 양반술인 삼해주의 탁주버전 #오직 쌀과 누룩으로만 빚음 #조금 부드럽고 산미가 적당하여 시금털털 막걸리의 고급버전", cnt:0});
-	goods.arrAllGoods.push({goodsId:"151",goodsUnprc:0,goodsNm:"36. 이상헌탁주 500ml 14도 (세트 1)", goodsSubname:"충남아산 이가수불", goodsSubname2:"#드라이한 맛과 부드러운 목넘김이 조화로운 술 #단맛을 선호하지 않으며 색다른 술을 찾는 분께 추천 #목 넘김 후 올라오는 술의 맡기", cnt:0});
-	goods.arrAllGoods.push({goodsId:"152",goodsUnprc:0,goodsNm:"모짜렐라김치전M (세트 1)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"153",goodsUnprc:0,goodsNm:"체다듬뿍감자전M (세트 1)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"145",goodsUnprc:0,goodsNm:"30. 복순도가 손 막걸리 935ml 6.5도 (세트 1)", goodsNmForSub:"30. 복순도가 손 막걸리 935ml 6.5도", goodsSubname:"울산광역시 복순도가", goodsSubname2:"#박복순 할머니께서 빚은 #가볍고 청량감이 풍부 #새콤 #원조샴페인막걸리", cnt:0});
+	goods.arrAllGoods.push({goodsId:"146",goodsUnprc:0,goodsNm:"31. 스파클링 막걸리 산소 940ml 6.8도 (세트 1)", goodsNmForSub:"31. 스파클링 막걸리 산소 940ml 6.8도", goodsSubname:"전남장성 청산녹수", goodsSubname2:"#無감미료 #자연탄산 그대로의 균형잡힌 맛의 샴페인 막걸리", cnt:0});
+	goods.arrAllGoods.push({goodsId:"147",goodsUnprc:0,goodsNm:"32. 스트로우베리 스파클링 막걸리 940ml 6.8도 (세트 1)", goodsNmForSub:"32. 스트로우베리 스파클링 막걸리 940ml 6.8도", goodsSubname:"전남장성 청산녹수", goodsSubname2:"#無아스파탐 #딸기품종 설향으로 만든 달콤한 샴페인 막걸리 #데이트중이시라면", cnt:0});
+	goods.arrAllGoods.push({goodsId:"148",goodsUnprc:0,goodsNm:"33. 해창9도 900ml 9도 (세트 1)",goodsNmForSub:"33. 해창9도 900ml 9도", goodsSubname:"전남해남 해창주조", goodsSubname2:"#대중버전보다 숙성시간이 길어 단맛이 강하고 목넘김이 부드러움 #양조장 특유의 두터운 입자감은 옛날 귀한 손님께 내놓던 가양주의 느낌", cnt:0});
+	goods.arrAllGoods.push({goodsId:"149",goodsUnprc:0,goodsNm:"34. 세종대왕 어주 500ml 13도 (세트 1)",goodsNmForSub:"34. 세종대왕 어주 500ml 13도", goodsSubname:"충북처원 장희도가", goodsSubname2:"#세종대왕 제위시절 쓰여진 벽향주 주방문을 이용해 재현한 술 #90일 이상의 숙성 #몽글몽글한 자연적인 단맛이 도는 고급 탁주", cnt:0});
+	goods.arrAllGoods.push({goodsId:"150",goodsUnprc:0,goodsNm:"35. 삼해탁주 500ml 13도 (세트 1)",goodsNmForSub:"35. 삼해탁주 500ml 13도", goodsSubname:"서울특별시 삼해소주가", goodsSubname2:"#조선시대 양반술인 삼해주의 탁주버전 #오직 쌀과 누룩으로만 빚음 #조금 부드럽고 산미가 적당하여 시금털털 막걸리의 고급버전", cnt:0});
+	goods.arrAllGoods.push({goodsId:"151",goodsUnprc:0,goodsNm:"36. 이상헌탁주 500ml 14도 (세트 1)",goodsNmForSub:"36. 이상헌탁주 500ml 14도", goodsSubname:"충남아산 이가수불", goodsSubname2:"#드라이한 맛과 부드러운 목넘김이 조화로운 술 #단맛을 선호하지 않으며 색다른 술을 찾는 분께 추천 #목 넘김 후 올라오는 술의 맡기", cnt:0});
+	goods.arrAllGoods.push({goodsId:"152",goodsUnprc:0,goodsNm:"모짜렐라김치전M (세트 1)",goodsNmForSub:"모짜렐라김치전M", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"153",goodsUnprc:0,goodsNm:"체다듬뿍감자전M (세트 1)",goodsNmForSub:"체다듬뿍감자전M", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
 	//판타스틱4세트
-	goods.arrAllGoods.push({goodsId:"154",goodsUnprc:0,goodsNm:"모짜렐라김치전 (세트 3)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"155",goodsUnprc:0,goodsNm:"체다듬뿍감자전 (세트 3)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"156",goodsUnprc:0,goodsNm:"불고기치즈파전(매운) (세트 3)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"157",goodsUnprc:0,goodsNm:"꿀고구마치즈전 (세트 3)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"158",goodsUnprc:0,goodsNm:"쫄깃한 무뼈닭발볶음 (세트 3)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"159",goodsUnprc:0,goodsNm:"오독오독 오돌뼈볶음 (세트 3)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"160",goodsUnprc:0,goodsNm:"고추장불고기 (세트 3)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"154",goodsUnprc:0,goodsNm:"모짜렐라김치전 (세트 3)",goodsNmForSub:"모짜렐라김치전", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"155",goodsUnprc:0,goodsNm:"체다듬뿍감자전 (세트 3)",goodsNmForSub:"체다듬뿍감자전", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"156",goodsUnprc:0,goodsNm:"불고기치즈파전(매운) (세트 3)",goodsNmForSub:"불고기치즈파전(매운)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"157",goodsUnprc:0,goodsNm:"꿀고구마치즈전 (세트 3)",goodsNmForSub:"꿀고구마치즈전", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"158",goodsUnprc:0,goodsNm:"쫄깃한 무뼈닭발볶음 (세트 3)",goodsNmForSub:"쫄깃한 무뼈닭발볶음", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"159",goodsUnprc:0,goodsNm:"오독오독 오돌뼈볶음 (세트 3)",goodsNmForSub:"오독오독 오돌뼈볶음", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"160",goodsUnprc:0,goodsNm:"고추장불고기 (세트 3)",goodsNmForSub:"고추장불고기", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
 	//치떡치떡세트
-	goods.arrAllGoods.push({goodsId:"161",goodsUnprc:0,goodsNm:"모짜렐라김치전 (세트 4)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"162",goodsUnprc:0,goodsNm:"체다듬뿍감자전 (세트 4)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"163",goodsUnprc:0,goodsNm:"불고기치즈파전(매운) (세트 4)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"164",goodsUnprc:0,goodsNm:"옥수수치즈전 (세트 4)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"165",goodsUnprc:0,goodsNm:"꿀고구마치즈전 (세트 4)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"161",goodsUnprc:0,goodsNm:"모짜렐라김치전 (세트 4)",goodsNmForSub:"모짜렐라김치전", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"162",goodsUnprc:0,goodsNm:"체다듬뿍감자전 (세트 4)",goodsNmForSub:"체다듬뿍감자전", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"163",goodsUnprc:0,goodsNm:"불고기치즈파전(매운) (세트 4)",goodsNmForSub:"불고기치즈파전(매운)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"164",goodsUnprc:0,goodsNm:"옥수수치즈전 (세트 4)",goodsNmForSub:"옥수수치즈전", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"165",goodsUnprc:0,goodsNm:"꿀고구마치즈전 (세트 4)",goodsNmForSub:"꿀고구마치즈전", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
 	//내맘대로세트2
-	goods.arrAllGoods.push({goodsId:"166",goodsUnprc:0,goodsNm:"김치전 (세트 5)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"167",goodsUnprc:0,goodsNm:"채감자전 (세트 5)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"168",goodsUnprc:0,goodsNm:"부추전 (세트 5)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"169",goodsUnprc:0,goodsNm:"두부전 (세트 5)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"170",goodsUnprc:0,goodsNm:"새송이전 (세트 5)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"171",goodsUnprc:0,goodsNm:"애호박전 (세트 5)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"172",goodsUnprc:0,goodsNm:"깻잎전 (세트 5)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"173",goodsUnprc:0,goodsNm:"동태전 (세트 5)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"174",goodsUnprc:0,goodsNm:"고추전 (세트 5)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"175",goodsUnprc:0,goodsNm:"삼색꼬치 (세트 5)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"166",goodsUnprc:0,goodsNm:"김치전 (세트 5)",goodsNmForSub:"김치전", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"167",goodsUnprc:0,goodsNm:"채감자전 (세트 5)",goodsNmForSub:"채감자전", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"168",goodsUnprc:0,goodsNm:"부추전 (세트 5)",goodsNmForSub:"부추전", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"169",goodsUnprc:0,goodsNm:"두부전 (세트 5)",goodsNmForSub:"두부전", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"170",goodsUnprc:0,goodsNm:"새송이전 (세트 5)",goodsNmForSub:"새송이전", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"171",goodsUnprc:0,goodsNm:"애호박전 (세트 5)",goodsNmForSub:"애호박전", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"172",goodsUnprc:0,goodsNm:"깻잎전 (세트 5)",goodsNmForSub:"깻잎전", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"173",goodsUnprc:0,goodsNm:"동태전 (세트 5)",goodsNmForSub:"동태전", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"174",goodsUnprc:0,goodsNm:"고추전 (세트 5)",goodsNmForSub:"고추전", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"175",goodsUnprc:0,goodsNm:"삼색꼬치 (세트 5)",goodsNmForSub:"삼색꼬치", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
 	//내맘대로세트3
-	goods.arrAllGoods.push({goodsId:"176",goodsUnprc:0,goodsNm:"김치전 (세트 6)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"177",goodsUnprc:0,goodsNm:"채감자전 (세트 6)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"178",goodsUnprc:0,goodsNm:"부추전 (세트 6)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"179",goodsUnprc:0,goodsNm:"두부전 (세트 6)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"180",goodsUnprc:0,goodsNm:"새송이전 (세트 6)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"181",goodsUnprc:0,goodsNm:"애호박전 (세트 6)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"182",goodsUnprc:0,goodsNm:"깻잎전 (세트 6)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"183",goodsUnprc:0,goodsNm:"동태전 (세트 6)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"184",goodsUnprc:0,goodsNm:"고추전 (세트 6)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
-	goods.arrAllGoods.push({goodsId:"185",goodsUnprc:0,goodsNm:"삼색꼬치 (세트 6)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"176",goodsUnprc:0,goodsNm:"김치전 (세트 6)",goodsNmForSub:"김치전", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"177",goodsUnprc:0,goodsNm:"채감자전 (세트 6)",goodsNmForSub:"채감자전", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"178",goodsUnprc:0,goodsNm:"부추전 (세트 6)",goodsNmForSub:"부추전", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"179",goodsUnprc:0,goodsNm:"두부전 (세트 6)",goodsNmForSub:"두부전", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"180",goodsUnprc:0,goodsNm:"새송이전 (세트 6)",goodsNmForSub:"새송이전", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"181",goodsUnprc:0,goodsNm:"애호박전 (세트 6)",goodsNmForSub:"애호박전", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"182",goodsUnprc:0,goodsNm:"깻잎전 (세트 6)",goodsNmForSub:"깻잎전", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"183",goodsUnprc:0,goodsNm:"동태전 (세트 6)",goodsNmForSub:"동태전", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"184",goodsUnprc:0,goodsNm:"고추전 (세트 6)",goodsNmForSub:"고추전 (세트 6)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"185",goodsUnprc:0,goodsNm:"삼색꼬치 (세트 6)",goodsNmForSub:"삼색꼬치", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
 
 	goods.afterProc();
 	//goods.drawGoods(goods.arrAllGoods);
