@@ -84,6 +84,15 @@
 			margin: 0;
 			float: right;
 		}
+		#div_subquantity{
+			border: thin solid black;
+			margin: auto;
+			padding: 0px;
+			float: right;
+			background-color: white;
+			height: 30px;
+			width: auto;
+		}
 		#btn_subminus{
 			width: 20px;
 			height: 30px;
@@ -141,7 +150,7 @@
 		<p>
 		</p>
 		</div>
-		<div id="div_non_category1" value = 0></div>
+		<div id="div_non_category1"></div>
 		
 		<div id="div_category2" class="div_category" num = 2 value = 0 title = "겨울메뉴 &#x25BC">
 		겨울메뉴 &#x25BC
@@ -420,7 +429,7 @@
 				innerHtml += '<br> <span id="input_subname2_'+goods.arrAllGoods[i].goodsId+'"' + 'style="font-size:80%; color:grey; word-break:keep-all">' + goods.arrAllGoods[i].goodsSubname2 + '</span>';
 			innerHtml += '</div>';
 			innerHtml += '<div id="div_price_quantity_sub" style="float:left; width:30%;">';
-				innerHtml += '<div id="div_quantity">';
+				innerHtml += '<div id="div_subquantity">';
 				innerHtml += '<button id="btn_subminus" onclick="goods.minus(\''+goods.arrAllGoods[i].goodsId+'\');"> - </button>';
 				innerHtml += '<button id="btn_subnum">';
 
@@ -435,7 +444,7 @@
 
 	$('#div_non_category1').click(function(event) {
 		if (event.target.id === 'input_name_0' || event.target.id === 'input_subname_0' || event.target.id === 'input_subname2_0' || event.target.id === 'div_menu_0') {
-			flag = $(this).attr("value");
+			flag = $('#sub_menu_root_0').attr("value");
 			if (flag == 0) {
 				var innerHtml = "";
 				innerHtml += '<span style="float:left; width:100%; margin-left: -8px"> 샴페인 막걸리 : </span>';
@@ -445,16 +454,53 @@
 				innerHtml += '<span style="float:left; width:100%;  margin-left: -8px; border-top:thin solid black"> 전 : </span>';
 				innerHtml += draw_sub_menu(152, 153);
 				
-				$(this).attr("value", 1);
-				$('#sub_menu_root').attr("style", "clear: both; padding:10px; float:left; width: 70%; background-color:#F0F0F0");
+				$('#sub_menu_root_0').attr("value", 1);
+				$('#sub_menu_root_0').attr("style", "clear: both; padding:10px; float:left; width: 70%; background-color:#F0F0F0");
 			}
 			else {
-				$('#sub_menu_root').html('');
-				$(this).attr("value", 0);
-				$('#sub_menu_root').attr("style", "clear: both; float:left; width: 70%; background-color:#F0F0F0");
+				$('#sub_menu_root_0').html('');
+				$('#sub_menu_root_0').attr("value", 0);
+				$('#sub_menu_root_0').attr("style", "clear: both; float:left; width: 70%; background-color:#F0F0F0");
 			}
-			$('#sub_menu_root').append(innerHtml);
-			
+			$('#sub_menu_root_0').append(innerHtml);	
+		}
+		else if (event.target.id === 'input_name_2' || event.target.id === 'input_subname_2' || event.target.id === 'input_subname2_2' || event.target.id === 'div_menu_2') {
+			flag = $('#sub_menu_root_2').attr("value");
+			if (flag == 0) {
+				var innerHtml = "";
+				innerHtml += '<span style="float:left; width:100%; margin-left: -8px"> 치즈전 : </span>';
+				innerHtml += draw_sub_menu(154, 157);
+				innerHtml += '<span style="float:left; width:100%;  margin-left: -8px; margin-top:5px; border-top:thin solid black"> 볶음류 : </span>';
+				innerHtml += draw_sub_menu(158, 160);
+				
+				$('#sub_menu_root_2').attr("value", 1);
+				$('#sub_menu_root_2').attr("style", "clear: both; padding:10px; float:left; width: 70%; background-color:#F0F0F0");
+			}
+			else {
+				$('#sub_menu_root_2').html('');
+				$('#sub_menu_root_2').attr("value", 0);
+				$('#sub_menu_root_2').attr("style", "clear: both; float:left; width: 70%; background-color:#F0F0F0");
+			}
+			$('#sub_menu_root_2').append(innerHtml);
+		}
+		else if (event.target.id === 'input_name_3' || event.target.id === 'input_subname_3' || event.target.id === 'input_subname2_3' || event.target.id === 'div_menu_3') {
+			flag = $('#sub_menu_root_3').attr("value");
+			if (flag == 0) {
+				var innerHtml = "";
+				innerHtml += '<span style="float:left; width:100%; margin-left: -8px"> 치즈전 : </span>';
+				innerHtml += draw_sub_menu(154, 157);
+				innerHtml += '<span style="float:left; width:100%;  margin-left: -8px; margin-top:5px; border-top:thin solid black"> 볶음류 : </span>';
+				innerHtml += draw_sub_menu(158, 160);
+				
+				$('#sub_menu_root_3').attr("value", 1);
+				$('#sub_menu_root_3').attr("style", "clear: both; padding:10px; float:left; width: 70%; background-color:#F0F0F0");
+			}
+			else {
+				$('#sub_menu_root_3').html('');
+				$('#sub_menu_root_3').attr("value", 0);
+				$('#sub_menu_root_3').attr("style", "clear: both; float:left; width: 70%; background-color:#F0F0F0");
+			}
+			$('#sub_menu_root_3').append(innerHtml);
 		}
 	});
 	
@@ -489,10 +535,9 @@
 						innerHtml += '<button id="btn_plus" onclick=" goods.plus(\''+goods[i].goodsId+'\');"> + </button>';
 						innerHtml += '</div>';
 					innerHtml += '</div>';
-				innerHtml += '<div id="sub_menu_root" style="clear: both; float:left; width: 70%; background-color:#F0F0F0">';
+					
 				innerHtml += '</div>';
-
-				innerHtml += '</div>';
+				innerHtml += '<div id="sub_menu_root_'+i+'" value=0 style="clear: both; float:left; width: 70%; background-color:#F0F0F0"> </div>';
 				innerHtml += '</div>';
 			}
 			return innerHtml;
@@ -853,8 +898,16 @@
 	goods.arrAllGoods.push({goodsId:"149",goodsUnprc:0,goodsNm:"34. 세종대왕 어주 500ml 13도 (세트 1)", goodsSubname:"충북처원 장희도가", goodsSubname2:"#세종대왕 제위시절 쓰여진 벽향주 주방문을 이용해 재현한 술 #90일 이상의 숙성 #몽글몽글한 자연적인 단맛이 도는 고급 탁주", cnt:0});
 	goods.arrAllGoods.push({goodsId:"150",goodsUnprc:0,goodsNm:"35. 삼해탁주 500ml 13도 (세트 1)", goodsSubname:"서울특별시 삼해소주가", goodsSubname2:"#조선시대 양반술인 삼해주의 탁주버전 #오직 쌀과 누룩으로만 빚음 #조금 부드럽고 산미가 적당하여 시금털털 막걸리의 고급버전", cnt:0});
 	goods.arrAllGoods.push({goodsId:"151",goodsUnprc:0,goodsNm:"36. 이상헌탁주 500ml 14도 (세트 1)", goodsSubname:"충남아산 이가수불", goodsSubname2:"#드라이한 맛과 부드러운 목넘김이 조화로운 술 #단맛을 선호하지 않으며 색다른 술을 찾는 분께 추천 #목 넘김 후 올라오는 술의 맡기", cnt:0});
-	goods.arrAllGoods.push({goodsId:"152",goodsUnprc:0,goodsNm:"모짜렐라김치전", cnt:0});
-	goods.arrAllGoods.push({goodsId:"153",goodsUnprc:0,goodsNm:"체다듬뿍감자전", cnt:0});
+	goods.arrAllGoods.push({goodsId:"152",goodsUnprc:0,goodsNm:"모짜렐라김치전M (세트 1)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"153",goodsUnprc:0,goodsNm:"체다듬뿍감자전M (세트 1)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	//판타스틱4세트
+	goods.arrAllGoods.push({goodsId:"154",goodsUnprc:0,goodsNm:"모짜렐라김치전 (세트 2)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"155",goodsUnprc:0,goodsNm:"체다듬뿍감자전 (세트 2)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"156",goodsUnprc:0,goodsNm:"불고기치즈파전(매운) (세트 2)", goodsSubname:"&nbsp", goodsSubname2:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"157",goodsUnprc:0,goodsNm:"꿀고구마치즈전 (세트 2)", goodsSubname:"&nbsp",  cnt:0});
+	goods.arrAllGoods.push({goodsId:"158",goodsUnprc:0,goodsNm:"쫄깃한 무뼈닭발볶음 (세트 2)", goodsSubname:"&nbsp",  cnt:0});
+	goods.arrAllGoods.push({goodsId:"159",goodsUnprc:0,goodsNm:"오독오독 오돌뼈볶음 (세트 2)", goodsSubname:"&nbsp", cnt:0});
+	goods.arrAllGoods.push({goodsId:"160",goodsUnprc:0,goodsNm:"고추장불고기 (세트 2)", goodsSubname:"&nbsp", cnt:0});
 	
 
 
