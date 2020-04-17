@@ -417,36 +417,35 @@
 			console.log("flag is : " + flag);
 			if (flag == 0) {
 				var innerHtml = "";
+				innerHtml += '<span style="float:left; width:100%"> 프리미엄 막걸리 : </span>';
 				for (var i = 55; i<=57; i++) {	
-					innerHtml += '<div id="sub_menu_root" style="clear: both; padding-left: 10px; float:left; width: 70%; background-color:#F0F0F0">';
-					innerHtml += '<span style="float:left; width:100%"> 프리미엄 막걸리 : </span>';
-						innerHtml += '<div id="div_menu_sub" style="float: left; width:70%; font-size: smaller; word-break:keep-all">'
-						innerHtml += '<span id="input_name_'+goods.arrAllGoods[i].goodsId+'">' + goods.arrAllGoods[i].goodsNm + '</span>';
-						if (goods.arrAllGoods[i].goodsSubname)
-							innerHtml += '<br> <span id="input_subname_'+goods.arrAllGoods[i].goodsId+'"' + 'style="font-size:80%; color:grey; word-break:keep-all">' + goods.arrAllGoods[i].goodsSubname + '</span>';
-						if (goods.arrAllGoods[i].goodsSubname2)
-							innerHtml += '<br> <span id="input_subname2_'+goods.arrAllGoods[i].goodsId+'"' + 'style="font-size:80%; color:grey; word-break:keep-all">' + goods.arrAllGoods[i].goodsSubname2 + '</span>';
-						innerHtml += '</div>';
-						innerHtml += '<div id="div_price_quantity_sub" style="float:left; width:30%;">';
-							innerHtml += '<div id="div_quantity">';
-							innerHtml += '<button id="btn_subminus" onclick="goods.minus(\''+goods.arrAllGoods[i].goodsId+'\');"> - </button>';
-							innerHtml += '<button id="btn_subnum">';
+					innerHtml += '<div id="div_menu" style="float: left; width:70%; font-size: smaller; word-break:keep-all">'
+					innerHtml += '<span id="input_name_'+goods.arrAllGoods[i].goodsId+'">' + goods.arrAllGoods[i].goodsNm + '</span>';
+					if (goods.arrAllGoods[i].goodsSubname)
+						innerHtml += '<br> <span id="input_subname_'+goods.arrAllGoods[i].goodsId+'"' + 'style="font-size:80%; color:grey; word-break:keep-all">' + goods.arrAllGoods[i].goodsSubname + '</span>';
+					if (goods.arrAllGoods[i].goodsSubname2)
+						innerHtml += '<br> <span id="input_subname2_'+goods.arrAllGoods[i].goodsId+'"' + 'style="font-size:80%; color:grey; word-break:keep-all">' + goods.arrAllGoods[i].goodsSubname2 + '</span>';
+					innerHtml += '</div>';
+					innerHtml += '<div id="div_price_quantity_sub" style="float:left; width:30%;">';
+						innerHtml += '<div id="div_quantity">';
+						innerHtml += '<button id="btn_subminus" onclick="goods.minus(\''+goods.arrAllGoods[i].goodsId+'\');"> - </button>';
+						innerHtml += '<button id="btn_subnum">';
 
-							innerHtml += '<span id="input_cnt_'+goods.arrAllGoods[i].goodsId+'">' + goods.arrAllGoods[i].cnt + '</span>';
-							innerHtml += '</button>';
-							innerHtml += '<button id="btn_subplus" onclick=" goods.plus(\''+goods.arrAllGoods[i].goodsId+'\');"> + </button>';
-							innerHtml += '</div>';
+						innerHtml += '<span id="input_cnt_'+goods.arrAllGoods[i].goodsId+'">' + goods.arrAllGoods[i].cnt + '</span>';
+						innerHtml += '</button>';
+						innerHtml += '<button id="btn_subplus" onclick=" goods.plus(\''+goods.arrAllGoods[i].goodsId+'\');"> + </button>';
 						innerHtml += '</div>';
 					innerHtml += '</div>';
 				}
+				innerHtml += '</div>';
 
 				$(this).attr("value", 1);
 			}
 			else {
-				$('#div_root').html('');
-				$().attr("value", 0);
+				$('#sub_menu_root').html('');
+				$(this).attr("value", 0);
 			}
-			$('#div_root').append(innerHtml);
+			$('#sub_menu_root').append(innerHtml);
 		}
 	});
 	
@@ -481,6 +480,9 @@
 						innerHtml += '<button id="btn_plus" onclick=" goods.plus(\''+goods[i].goodsId+'\');"> + </button>';
 						innerHtml += '</div>';
 					innerHtml += '</div>';
+				innerHtml += '<div id="sub_menu_root" style="clear: both; padding-left: 10px; float:left; width: 70%; background-color:#F0F0F0">';
+				innerHtml += '</div>';
+
 				innerHtml += '</div>';
 				innerHtml += '</div>';
 			}
