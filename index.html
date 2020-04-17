@@ -408,7 +408,30 @@
 		}
 		
 	});
-	
+
+	function draw_sub_menu(start, end){
+		var innerHtml = "";
+		for (var i = start; i<=end; i++) {	
+			innerHtml += '<div id="div_menu" style="float: left; width:70%; font-size: smaller; word-break:keep-all">'
+			innerHtml += '<span id="input_name_'+goods.arrAllGoods[i].goodsId+'">' + goods.arrAllGoods[i].goodsNm + '</span>';
+			if (goods.arrAllGoods[i].goodsSubname)
+				innerHtml += '<br> <span id="input_subname_'+goods.arrAllGoods[i].goodsId+'"' + 'style="font-size:80%; color:grey; word-break:keep-all">' + goods.arrAllGoods[i].goodsSubname + '</span>';
+			if (goods.arrAllGoods[i].goodsSubname2)
+				innerHtml += '<br> <span id="input_subname2_'+goods.arrAllGoods[i].goodsId+'"' + 'style="font-size:80%; color:grey; word-break:keep-all">' + goods.arrAllGoods[i].goodsSubname2 + '</span>';
+			innerHtml += '</div>';
+			innerHtml += '<div id="div_price_quantity_sub" style="float:left; width:30%;">';
+				innerHtml += '<div id="div_quantity">';
+				innerHtml += '<button id="btn_subminus" onclick="goods.minus(\''+goods.arrAllGoods[i].goodsId+'\');"> - </button>';
+				innerHtml += '<button id="btn_subnum">';
+
+				innerHtml += '<span id="input_cnt_'+goods.arrAllGoods[i].goodsId+'">' + goods.arrAllGoods[i].cnt + '</span>';
+				innerHtml += '</button>';
+				innerHtml += '<button id="btn_subplus" onclick=" goods.plus(\''+goods.arrAllGoods[i].goodsId+'\');"> + </button>';
+				innerHtml += '</div>';
+			innerHtml += '</div>';
+		}
+		return innerHtml;
+	}
 
 	$('#div_non_category1').click(function(event) {
 		console.log(event.target.id);
@@ -417,28 +440,13 @@
 			console.log("flag is : " + flag);
 			if (flag == 0) {
 				var innerHtml = "";
-				innerHtml += '<span style="float:left; width:100%"> 프리미엄 막걸리 : </span>';
-				for (var i = 55; i<=57; i++) {	
-					innerHtml += '<div id="div_menu" style="float: left; width:70%; font-size: smaller; word-break:keep-all">'
-					innerHtml += '<span id="input_name_'+goods.arrAllGoods[i].goodsId+'">' + goods.arrAllGoods[i].goodsNm + '</span>';
-					if (goods.arrAllGoods[i].goodsSubname)
-						innerHtml += '<br> <span id="input_subname_'+goods.arrAllGoods[i].goodsId+'"' + 'style="font-size:80%; color:grey; word-break:keep-all">' + goods.arrAllGoods[i].goodsSubname + '</span>';
-					if (goods.arrAllGoods[i].goodsSubname2)
-						innerHtml += '<br> <span id="input_subname2_'+goods.arrAllGoods[i].goodsId+'"' + 'style="font-size:80%; color:grey; word-break:keep-all">' + goods.arrAllGoods[i].goodsSubname2 + '</span>';
-					innerHtml += '</div>';
-					innerHtml += '<div id="div_price_quantity_sub" style="float:left; width:30%;">';
-						innerHtml += '<div id="div_quantity">';
-						innerHtml += '<button id="btn_subminus" onclick="goods.minus(\''+goods.arrAllGoods[i].goodsId+'\');"> - </button>';
-						innerHtml += '<button id="btn_subnum">';
-
-						innerHtml += '<span id="input_cnt_'+goods.arrAllGoods[i].goodsId+'">' + goods.arrAllGoods[i].cnt + '</span>';
-						innerHtml += '</button>';
-						innerHtml += '<button id="btn_subplus" onclick=" goods.plus(\''+goods.arrAllGoods[i].goodsId+'\');"> + </button>';
-						innerHtml += '</div>';
-					innerHtml += '</div>';
-				}
-				innerHtml += '</div>';
-
+				innerHtml += '<span style="float:left; width:100%"> 샴페인 막걸리 : </span>';
+				innerHtml += draw_sub_menu(67, 69);
+				innerHtml += '<span style="float:left; width:100%; border-top:thin solid black"> 프리미엄 막걸리 : </span>';
+				innerHtml += draw_sub_menu(70, 73);
+				innerHtml += '<span style="float:left; width:100%; border-top:thin solid black"> 전 : </span>';
+				innerHtml += draw_sub_menu(19, 20);
+				
 				$(this).attr("value", 1);
 			}
 			else {
