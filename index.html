@@ -549,7 +549,11 @@
 				innerHtml += '<div id="div_root">';
 				innerHtml += '<div id="top">';
 					innerHtml += '<div id="div_menu_'+i+'" class="div_menu" style="word-break:keep-all">'
-						innerHtml += '<span id="input_name_'+goods[i].goodsId+'">' + goods[i].goodsNm + '</span>';
+						if (i==0 || i==2 || i==3 || i==4 || i==5) {
+							innerHtml += '<span id="input_name_'+goods[i].goodsId+'">' + goods[i].goodsNm + '&#x25BC </span>';
+						}
+						else
+							innerHtml += '<span id="input_name_'+goods[i].goodsId+'">' + goods[i].goodsNm + '</span>';
 						if (goods[i].goodsSubname)
 							innerHtml += '<br> <span id="input_subname_'+goods[i].goodsId+'"' + 'style="font-size:80%; color:grey; word-break:keep-all">' + goods[i].goodsSubname + '</span>';
 						if (goods[i].goodsSubname2)
