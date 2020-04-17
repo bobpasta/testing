@@ -434,26 +434,27 @@
 	}
 
 	$('#div_non_category1').click(function(event) {
-		console.log(event.target.id);
 		if (event.target.id === 'input_name_0' || event.target.id === 'input_subname_0' || event.target.id === 'input_subname2_0' || event.target.id === 'div_menu_0') {
 			flag = $(this).attr("value");
-			console.log("flag is : " + flag);
 			if (flag == 0) {
 				var innerHtml = "";
-				innerHtml += '<span style="float:left; width:100%"> 샴페인 막걸리 : </span>';
-				innerHtml += draw_sub_menu(67, 69);
-				innerHtml += '<span style="float:left; width:100%; border-top:thin solid black"> 프리미엄 막걸리 : </span>';
-				innerHtml += draw_sub_menu(70, 73);
-				innerHtml += '<span style="float:left; width:100%; border-top:thin solid black"> 전 : </span>';
-				innerHtml += draw_sub_menu(19, 20);
+				innerHtml += '<span style="float:left; width:100%; margin-left: -8px"> 샴페인 막걸리 : </span>';
+				innerHtml += draw_sub_menu(145, 147);
+				innerHtml += '<span style="float:left; width:100%;  margin-left: -8px; border-top:thin solid black"> 프리미엄 막걸리 : </span>';
+				innerHtml += draw_sub_menu(148, 151);
+				innerHtml += '<span style="float:left; width:100%;  margin-left: -8px; border-top:thin solid black"> 전 : </span>';
+				innerHtml += draw_sub_menu(152, 153);
 				
 				$(this).attr("value", 1);
+				$('#sub_menu_root').attr("style", "clear: both; padding:10px; float:left; width: 70%; background-color:#F0F0F0");
 			}
 			else {
 				$('#sub_menu_root').html('');
 				$(this).attr("value", 0);
+				$('#sub_menu_root').attr("style", "clear: both; float:left; width: 70%; background-color:#F0F0F0");
 			}
 			$('#sub_menu_root').append(innerHtml);
+			
 		}
 	});
 	
@@ -488,7 +489,7 @@
 						innerHtml += '<button id="btn_plus" onclick=" goods.plus(\''+goods[i].goodsId+'\');"> + </button>';
 						innerHtml += '</div>';
 					innerHtml += '</div>';
-				innerHtml += '<div id="sub_menu_root" style="clear: both; padding-left: 10px; float:left; width: 70%; background-color:#F0F0F0">';
+				innerHtml += '<div id="sub_menu_root" style="clear: both; float:left; width: 70%; background-color:#F0F0F0">';
 				innerHtml += '</div>';
 
 				innerHtml += '</div>';
@@ -656,13 +657,13 @@
 	
 	//jstl로 전체 상품 목록 미리 세팅
 	//세트메뉴
-	goods.arrAllGoods.push({goodsId:"0",goodsUnprc:26000,goodsNm:"프리미엄 막걸리와 치즈전의 만남 (2인)", goodsSubname:"프리미엄막걸리 혹은 샴페인막걸리 + 모짜렐라김치전M 혹은 체다듬뿍감자전M", cnt:0});
-	goods.arrAllGoods.push({goodsId:"1",goodsUnprc:26000,goodsNm:"모듬전과 반접시 굴무침 (2-3인)", cnt:0});
-	goods.arrAllGoods.push({goodsId:"2",goodsUnprc:25000,goodsNm:"판타스틱4세트 (치즈전 선택1 + 볶음류 선택1) + 꿀토마토와 주먹밥", goodsSubname:"모짜렐라김치전, 체다듬뿍감자전, 불고기치즈파전(매운), 꿀고구마치즈전 중 선택1",
+	goods.arrAllGoods.push({goodsId:"0",goodsUnprc:26000,goodsNm:"세트 1: 프리미엄 막걸리와 치즈전의 만남 (2인)", goodsSubname:"프리미엄막걸리 혹은 샴페인막걸리 + 모짜렐라김치전M 혹은 체다듬뿍감자전M", cnt:0});
+	goods.arrAllGoods.push({goodsId:"1",goodsUnprc:26000,goodsNm:"세트 2: 모듬전과 반접시 굴무침 (2-3인)", cnt:0});
+	goods.arrAllGoods.push({goodsId:"2",goodsUnprc:25000,goodsNm:"세트 3:판타스틱4세트 (치즈전 선택1 + 볶음류 선택1) + 꿀토마토와 주먹밥", goodsSubname:"모짜렐라김치전, 체다듬뿍감자전, 불고기치즈파전(매운), 꿀고구마치즈전 중 선택1",
 	                        goodsSubname2:"고추장불고기, 무뼈닭발볶음, 오돌뼈볶음 중 선택1", cnt:0});
-	goods.arrAllGoods.push({goodsId:"3",goodsUnprc:20000,goodsNm:"치떡치떡세트 (치즈전 + 골라먹는떡볶이) (2인)", goodsSubname:"모짜렐라김치전, 체다듬뿍감자전, 불고기치즈파전, 옥수수치즈전, 꿀고구마치즈전 중 선택1", cnt:0});
-	goods.arrAllGoods.push({goodsId:"4",goodsUnprc:15000,goodsNm:"내맘대로세트 두가지 (2인)", goodsSubname:"김치전, 채감자전, 부추전, 두부전, 새송이전, 애호박전, 깻잎전, 동태전, 고추전, 삼색꼬치 중 선택2", cnt:0});
-	goods.arrAllGoods.push({goodsId:"5",goodsUnprc:20000,goodsNm:"내맘대로세트 세가지 (3인)", goodsSubname:"김치전, 채감자전, 부추전, 두부전, 새송이전, 애호박전, 깻잎전, 동태전, 고추전, 삼색꼬치 중 선택3", cnt:0});
+	goods.arrAllGoods.push({goodsId:"3",goodsUnprc:20000,goodsNm:"세트 4: 치떡치떡세트 (치즈전 + 골라먹는떡볶이) (2인)", goodsSubname:"모짜렐라김치전, 체다듬뿍감자전, 불고기치즈파전, 옥수수치즈전, 꿀고구마치즈전 중 선택1", cnt:0});
+	goods.arrAllGoods.push({goodsId:"4",goodsUnprc:15000,goodsNm:"세트 5: 내맘대로세트 두가지 (2인)", goodsSubname:"김치전, 채감자전, 부추전, 두부전, 새송이전, 애호박전, 깻잎전, 동태전, 고추전, 삼색꼬치 중 선택2", cnt:0});
+	goods.arrAllGoods.push({goodsId:"5",goodsUnprc:20000,goodsNm:"세트 6: 내맘대로세트 세가지 (3인)", goodsSubname:"김치전, 채감자전, 부추전, 두부전, 새송이전, 애호박전, 깻잎전, 동태전, 고추전, 삼색꼬치 중 선택3", cnt:0});
 	
 	//겨울메뉴
 	goods.arrAllGoods.push({goodsId:"6",goodsUnprc:16000,goodsNm:"생굴회", goodsSubname:"가게의 모든 굴은 통영수협 57번 중매인님께 산지에서 직접 받아 제공하고 있습니다.", cnt:0});
@@ -842,6 +843,20 @@
 	goods.arrAllGoods.push({goodsId:"142",goodsUnprc:35000,goodsNm:"99. 소백산산향기 750ml 12도", goodsSubname:"경상북도 영주 산내들와인", goodsSubname2:"#드라이와인", cnt:0});
 	goods.arrAllGoods.push({goodsId:"143",goodsUnprc:55000,goodsNm:"100. 오미로제 750ml 12도", goodsSubname:"경북문경 제이엘", goodsSubname2:"#로제와인", cnt:0});
 	goods.arrAllGoods.push({goodsId:"144",goodsUnprc:99000,goodsNm:"101. 그랑고또 청수 750ml 12도", goodsSubname:"경기안산 대부도 그린영농조합", goodsSubname2:"#화이트와인 #2019 우리술 품평회 대상", cnt:0});
+
+	//세트 메뉴
+	//프리미엄 막걸리와 치즈전의 만남:
+	goods.arrAllGoods.push({goodsId:"145",goodsUnprc:0,goodsNm:"30. 복순도가 손 막걸리 935ml 6.5도 (세트 1)", goodsSubname:"울산광역시 복순도가", goodsSubname2:"#박복순 할머니께서 빚은 #가볍고 청량감이 풍부 #새콤 #원조샴페인막걸리", cnt:0});
+	goods.arrAllGoods.push({goodsId:"146",goodsUnprc:0,goodsNm:"31. 스파클링 막걸리 산소 940ml 6.8도 (세트 1)", goodsSubname:"전남장성 청산녹수", goodsSubname2:"#無감미료 #자연탄산 그대로의 균형잡힌 맛의 샴페인 막걸리", cnt:0});
+	goods.arrAllGoods.push({goodsId:"147",goodsUnprc:0,goodsNm:"32. 스트로우베리 스파클링 막걸리 940ml 6.8도 (세트 1)", goodsSubname:"전남장성 청산녹수", goodsSubname2:"#無아스파탐 #딸기품종 설향으로 만든 달콤한 샴페인 막걸리 #데이트중이시라면", cnt:0});
+	goods.arrAllGoods.push({goodsId:"148",goodsUnprc:0,goodsNm:"33. 해창9도 900ml 9도 (세트 1)", goodsSubname:"전남해남 해창주조", goodsSubname2:"#대중버전보다 숙성시간이 길어 단맛이 강하고 목넘김이 부드러움 #양조장 특유의 두터운 입자감은 옛날 귀한 손님께 내놓던 가양주의 느낌", cnt:0});
+	goods.arrAllGoods.push({goodsId:"149",goodsUnprc:0,goodsNm:"34. 세종대왕 어주 500ml 13도 (세트 1)", goodsSubname:"충북처원 장희도가", goodsSubname2:"#세종대왕 제위시절 쓰여진 벽향주 주방문을 이용해 재현한 술 #90일 이상의 숙성 #몽글몽글한 자연적인 단맛이 도는 고급 탁주", cnt:0});
+	goods.arrAllGoods.push({goodsId:"150",goodsUnprc:0,goodsNm:"35. 삼해탁주 500ml 13도 (세트 1)", goodsSubname:"서울특별시 삼해소주가", goodsSubname2:"#조선시대 양반술인 삼해주의 탁주버전 #오직 쌀과 누룩으로만 빚음 #조금 부드럽고 산미가 적당하여 시금털털 막걸리의 고급버전", cnt:0});
+	goods.arrAllGoods.push({goodsId:"151",goodsUnprc:0,goodsNm:"36. 이상헌탁주 500ml 14도 (세트 1)", goodsSubname:"충남아산 이가수불", goodsSubname2:"#드라이한 맛과 부드러운 목넘김이 조화로운 술 #단맛을 선호하지 않으며 색다른 술을 찾는 분께 추천 #목 넘김 후 올라오는 술의 맡기", cnt:0});
+	goods.arrAllGoods.push({goodsId:"152",goodsUnprc:0,goodsNm:"모짜렐라김치전", cnt:0});
+	goods.arrAllGoods.push({goodsId:"153",goodsUnprc:0,goodsNm:"체다듬뿍감자전", cnt:0});
+	
+
 
 	goods.afterProc();
 	//goods.drawGoods(goods.arrAllGoods);
