@@ -105,7 +105,7 @@
 			float: left;
 		}
 		#btn_subnum{
-			width: 40px;
+			width: 30px;
 			height: 30px;
 			background-color: Transparent;
 			border-style: none;
@@ -445,6 +445,8 @@
 	}
 
 	$('#div_non_category1').click(function(event) {
+		style_with_padding = "clear: both; padding:10px; float:left; width: 90%; background-color:#F0F0F0";
+		style_no_padding = "clear: both; float:left; width: 90%; background-color:#F0F0F0"
 		if (event.target.id === 'input_name_0' || event.target.id === 'input_subname_0' || event.target.id === 'input_subname2_0' || event.target.id === 'div_menu_0') {
 			flag = $('#sub_menu_root_0').attr("value");
 			if (flag == 0) {
@@ -457,12 +459,12 @@
 				innerHtml += draw_sub_menu(152, 153, goods.arrAllGoods[0].cnt);
 				
 				$('#sub_menu_root_0').attr("value", 1);
-				$('#sub_menu_root_0').attr("style", "clear: both; padding:10px; float:left; width: 70%; background-color:#F0F0F0");
+				$('#sub_menu_root_0').attr("style", style_with_padding);
 			}
 			else {
 				$('#sub_menu_root_0').html('');
 				$('#sub_menu_root_0').attr("value", 0);
-				$('#sub_menu_root_0').attr("style", "clear: both; float:left; width: 70%; background-color:#F0F0F0");
+				$('#sub_menu_root_0').attr("style", style_no_padding);
 			}
 			$('#sub_menu_root_0').append(innerHtml);	
 		}
@@ -476,12 +478,12 @@
 				innerHtml += draw_sub_menu(158, 160, goods.arrAllGoods[2].cnt);
 				
 				$('#sub_menu_root_2').attr("value", 1);
-				$('#sub_menu_root_2').attr("style", "clear: both; padding:10px; float:left; width: 70%; background-color:#F0F0F0");
+				$('#sub_menu_root_2').attr("style", style_with_padding);
 			}
 			else {
 				$('#sub_menu_root_2').html('');
 				$('#sub_menu_root_2').attr("value", 0);
-				$('#sub_menu_root_2').attr("style", "clear: both; float:left; width: 70%; background-color:#F0F0F0");
+				$('#sub_menu_root_2').attr("style", style_no_padding);
 			}
 			$('#sub_menu_root_2').append(innerHtml);
 		}
@@ -493,12 +495,12 @@
 				innerHtml += draw_sub_menu(161, 165, goods.arrAllGoods[3].cnt);
 				
 				$('#sub_menu_root_3').attr("value", 1);
-				$('#sub_menu_root_3').attr("style", "clear: both; padding:10px; float:left; width: 70%; background-color:#F0F0F0");
+				$('#sub_menu_root_3').attr("style", style_with_padding);
 			}
 			else {
 				$('#sub_menu_root_3').html('');
 				$('#sub_menu_root_3').attr("value", 0);
-				$('#sub_menu_root_3').attr("style", "clear: both; float:left; width: 70%; background-color:#F0F0F0");
+				$('#sub_menu_root_3').attr("style", style_no_padding);
 			}
 			$('#sub_menu_root_3').append(innerHtml);
 		}
@@ -510,12 +512,12 @@
 				innerHtml += draw_sub_menu(166, 175, goods.arrAllGoods[4].cnt);
 				
 				$('#sub_menu_root_4').attr("value", 1);
-				$('#sub_menu_root_4').attr("style", "clear: both; padding:10px; float:left; width: 70%; background-color:#F0F0F0");
+				$('#sub_menu_root_4').attr("style", style_with_padding);
 			}
 			else {
 				$('#sub_menu_root_4').html('');
 				$('#sub_menu_root_4').attr("value", 0);
-				$('#sub_menu_root_4').attr("style", "clear: both; float:left; width: 70%; background-color:#F0F0F0");
+				$('#sub_menu_root_4').attr("style", style_no_padding);
 			}
 			$('#sub_menu_root_4').append(innerHtml);
 		}
@@ -527,12 +529,12 @@
 				innerHtml += draw_sub_menu(176, 185, goods.arrAllGoods[5].cnt);
 				
 				$('#sub_menu_root_5').attr("value", 1);
-				$('#sub_menu_root_5').attr("style", "clear: both; padding:10px; float:left; width: 70%; background-color:#F0F0F0");
+				$('#sub_menu_root_5').attr("style", style_with_padding);
 			}
 			else {
 				$('#sub_menu_root_5').html('');
 				$('#sub_menu_root_5').attr("value", 0);
-				$('#sub_menu_root_5').attr("style", "clear: both; float:left; width: 70%; background-color:#F0F0F0");
+				$('#sub_menu_root_5').attr("style", style_no_padding);
 			}
 			$('#sub_menu_root_5').append(innerHtml);
 		}
@@ -575,7 +577,7 @@
 					innerHtml += '</div>';
 					
 				innerHtml += '</div>';
-				innerHtml += '<div id="sub_menu_root_'+i+'" value=0 style="clear: both; float:left; width: 70%; background-color:#F0F0F0"> </div>';
+				innerHtml += '<div id="sub_menu_root_'+i+'" value=0 style="clear: both; float:left; width: 80%; background-color:#F0F0F0"> </div>';
 				innerHtml += '</div>';
 			}
 			return innerHtml;
