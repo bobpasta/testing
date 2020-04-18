@@ -322,17 +322,6 @@
 	      color: white;
 		  "
 >주문 및 결제</button>
-	<!--div id="div_root"> 
-		<div id="div_menu"> 알리오올리오 </div>
-		<div id="div_price_quantity">
-			<div id="div_price"> 16000원 </div>
-			<div id="div_quantity">
-				<button id="btn_minus"> - </button>
-				<button id="btn_num"> 00 </button>
-				<button id="btn_plus"> + </button>
-			</div>
-		</div>
-	</div-->
 </div>
 </body>
 
@@ -627,15 +616,6 @@
 				draw_sub_menu_5();
 			}
 			
-			/*
-			세트 시킨 이상으로 + 못하게 하는 코드
-			if (trgtGoodsId == 0) {
-				for (var i = 145; i<=153; i++) {
-					str = "#btn_subplus_"+i;
-					str2 = "goods.subplus(\'" + i + "\'," + goods.arrAllGoods[trgtGoodsId].cnt+");";
-					$(str).attr("onclick", str2);
-				}
-			}*/
 			p.afterProc();			
 		}
 		
@@ -789,57 +769,9 @@
 		
 		this.subminus = function (trgtGoodsId){
 			if(p.arrAllGoods[trgtGoodsId].cnt>0)
-				p.arrAllGoods[trgtGoodsId].cnt--;
-			/*
-			세트 숫자 줄이는 코드
-			if (p.arrAllGoods[trgtGoodsId].setName == "set1") {
-				total=p.arrAllGoods[0].cnt;
-				subtotal1 = 0;
-				subtotal2 = 0;
-				for(var i=0; i<p.arrAllGoods.length; i++) {
-					if (p.arrAllGoods[i].setName == "set1") {
-						if (p.arrAllGoods[i].goodsNm == "모짜렐라김치전M (세트 1)" || p.arrAllGoods[i].goodsNm == "체다듬뿍감자전M (세트 1)") {
-							subtotal2 += p.arrAllGoods[i].cnt;
-						}
-						else {
-							subtotal1 += p.arrAllGoods[i].cnt;
-						}
-					} 
-				}
-				console.log(total);
-				console.log(subtotal1);
-				console.log(subtotal2);
-				if (subtotal1 < total && subtotal2 < total) {
-					p.arrAllGoods[0].cnt--;
-				}
-			}
-			*/
-			
+				p.arrAllGoods[trgtGoodsId].cnt--;			
 			p.afterProc();
 		}
-		
-		/*
-		세트 시킨 이상으로 + 못하게 하는 코드
-		this.afterProcForSubMenu = function(id) {
-			str = "#btn_subplus_"+id;
-			str2 = "";
-			if (id >= 145 && id<=153) {
-				str2 = "goods.subplus(\'" + id + "\'," + goods.arrAllGoods[0].cnt+");";
-			}
-			else if (id >= 154 && id<=160) {
-				str2 = "goods.subplus(\'" + id + "\'," + goods.arrAllGoods[2].cnt+");";
-			}
-			else if (id >= 161 && id<=165) {
-				str2 = "goods.subplus(\'" + id + "\'," + goods.arrAllGoods[3].cnt+");";
-			}
-			else if (id >= 166 && id<=175) {
-				str2 = "goods.subplus(\'" + id + "\'," + goods.arrAllGoods[4].cnt+");";
-			}
-			else if (id >= 176 && id<=185) {
-				str2 = "goods.subplus(\'" + id + "\'," + goods.arrAllGoods[5].cnt+");";
-			}
-			$(str).attr("onclick", str2);
-		}*/
 		
 		var orderList = [];
 		this.afterProc = function (){
@@ -910,7 +842,7 @@
 					var order = orderList[i];
 					$.ajax({
 						type: "GET",
-						//url: "https://script.google.com/macros/s/AKfycbxJFXBRqM4_Y4E_w5qlI8QVmHd6HszYbqiyr65er5MEkGXA_0Eg/exec",
+						  url: "https://script.google.com/macros/s/AKfycbwYsVW4Ip-N1qnDzrsQggdhiFlBDUav10YB1EcJR8VyxOxVEEiy/exec",
 						data: {
 						  "메뉴": order.goodsNm,
 						  "개수": order.cnt,
@@ -935,7 +867,7 @@
 			if ($('#extraField').val()) {
 				$.ajax({
 					type: "GET",
-					//url: "https://script.google.com/macros/s/AKfycbxJFXBRqM4_Y4E_w5qlI8QVmHd6HszYbqiyr65er5MEkGXA_0Eg/exec",
+					  url: "https://script.google.com/macros/s/AKfycbwYsVW4Ip-N1qnDzrsQggdhiFlBDUav10YB1EcJR8VyxOxVEEiy/exec",
 					data: {
 					  "메뉴": $('#extraField').val(),
 					  "개수": 0,
@@ -957,7 +889,7 @@
 			}
 			if (orderList.length > 0) {
 				var amountHex = (totalAmount*Math.pow(2, 19)).toString(16);
-				//location.href = 'kakaotalk://kakaopay/money/to/qr?qr_code=281006011118310251003045'+amountHex;
+				location.href = 'kakaotalk://kakaopay/money/to/qr?qr_code=281006011115259970008807'+amountHex;
 			}
 		});
 		
